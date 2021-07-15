@@ -1,0 +1,41 @@
+                .bg-red {
+                    background-color: #ed302c;
+                    color: #ffffff !important;
+                }
+                
+                .text-red {
+                    color: #ed302c;
+                }
+                
+                .navbar-dark .navbar-nav .nav-link.login,
+                .home .nav .nav-item .nav-link.login {
+                    background-color: #ffffff;
+                    color: rgba(237, 48, 44, 1);
+                    border-radius: 50px;
+                }
+                
+                .home {
+                    position: absolute;
+                    top: 15em;
+                    z-index: 1;
+                    left: 5em;
+                }
+                
+                .home_end {
+                    right: 50%;
+                    position: absolute;
+                    bottom: 0;
+                    z-index: 1;
+                }
+                
+                .home_end #down {
+                    object-fit: cover;
+                    border-radius: 50px;
+                }
+                
+                .home .nav .nav-item .nav-link {
+                    border-radius: 50px;
+                    border: #ed302c solid 1px;
+                    background-color: rgba(237, 48, 44, 1);
+                    color: #ffffff;
+                }
