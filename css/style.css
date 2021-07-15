@@ -28,7 +28,8 @@
                     z-index: 1;
                 }
                 
-                .home_end #down {
+                .home_end .down,
+                .down {
                     object-fit: cover;
                     border-radius: 50px;
                 }
@@ -38,4 +39,24 @@
                     border: #ed302c solid 1px;
                     background-color: rgba(237, 48, 44, 1);
                     color: #ffffff;
+                }
+                
+                .down-left {
+                    border-radius: 0px 0px 0px 659px / 0px 0px 0px 350px;
+                }
+                
+                .up-right-down-left {
+                    border-radius: 0px 400px 0px 400px / 0px 400px 0px 400px;
+                }
+                
+                .up-right {
+                    border-radius: 0px 659px 0px 0px / 0px 350px 0px 0px;
+                }
+                
+                .bg-map {
+                    background-image: url(../img/‏‏Maps.png);
+                }
+                
+                .down {
+                    border-radius: 5px;
                 }
