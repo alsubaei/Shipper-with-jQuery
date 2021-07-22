@@ -1,62 +1,95 @@
-                .bg-red {
-                    background-color: #ed302c;
-                    color: #ffffff !important;
-                }
-                
-                .text-red {
-                    color: #ed302c;
-                }
-                
-                .navbar-dark .navbar-nav .nav-link.login,
-                .home .nav .nav-item .nav-link.login {
-                    background-color: #ffffff;
-                    color: rgba(237, 48, 44, 1);
-                    border-radius: 50px;
-                }
-                
-                .home {
-                    position: absolute;
-                    top: 15em;
-                    z-index: 1;
-                    left: 5em;
-                }
-                
-                .home_end {
-                    right: 50%;
-                    position: absolute;
-                    bottom: 0;
-                    z-index: 1;
-                }
-                
-                .home_end .down,
-                .down {
-                    object-fit: cover;
-                    border-radius: 50px;
-                }
-                
-                .home .nav .nav-item .nav-link {
-                    border-radius: 50px;
-                    border: #ed302c solid 1px;
-                    background-color: rgba(237, 48, 44, 1);
-                    color: #ffffff;
-                }
-                
-                .down-left {
-                    border-radius: 0px 0px 0px 659px / 0px 0px 0px 350px;
-                }
-                
-                .up-right-down-left {
-                    border-radius: 0px 400px 0px 400px / 0px 400px 0px 400px;
-                }
-                
-                .up-right {
-                    border-radius: 0px 659px 0px 0px / 0px 350px 0px 0px;
-                }
-                
-                .bg-map {
-                    background-image: url(../img/‏‏Maps.png);
-                }
-                
-                .down {
-                    border-radius: 5px;
-                }
+.bg-red {
+    background-color: #ed302c;
+    color: #ffffff !important;
+}
+
+.text-red {
+    color: #ed302c !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.login,
+.home .nav .nav-item .nav-link.login {
+    background-color: #ffffff;
+    color: rgba(237, 48, 44, 1);
+    border-radius: 50px;
+}
+
+.home {
+    position: absolute;
+    top: 10em;
+    z-index: 1;
+    left: 5em;
+}
+
+.home_end {
+    right: 50%;
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+}
+
+.home_end .down {
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.home .nav .nav-item .nav-link {
+    border-radius: 50px;
+    border: #ed302c solid 1px;
+    background-color: rgba(237, 48, 44, 1);
+    color: #ffffff;
+}
+
+.down-left {
+    border-radius: 0px 0px 0px 659px / 0px 0px 0px 350px;
+}
+
+.up-right-down-left {
+    border-radius: 0px 400px 0px 400px / 0px 400px 0px 400px;
+}
+
+.up-right {
+    border-radius: 0px 659px 0px 0px / 0px 350px 0px 0px;
+}
+
+.bg-map {
+    background-image: url(../img/‏‏Maps.png);
+}
+
+.down {
+    border-radius: 5px;
+}
+
+.bg-boxs {
+    background-image: url("../img/Signup.png");
+}
+
+form {
+    width: 400px;
+}
+
+.service2 {
+    background-color: #ffffff;
+    border: 5px solid #ffffff;
+    border-radius: 150px 150px 0px;
+    box-shadow: 100px 0px 0px 0px 40px;
+}
+
+.service1 {
+    background-color: #ffffff;
+    border: 5px solid #ffffff;
+    border-radius: 150px 150px 150px 0px;
+}
+
+.movingSofa {
+    max-width: 100%;
+    /* width: 546px; */
+    object-position: 50px;
+    height: 700px;
+    object-fit: cover;
+}
+
+.image {
+    max-width: 100% !important;
+    max-height: 170px !important
+}
