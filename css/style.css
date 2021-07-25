@@ -89,6 +89,16 @@ form {
     max-height: 170px !important
 }
 
+.bg-left {
+    border-radius: 150px 0px 0px 150px;
+    background: linear-gradient(to left, #ed302c 0%, #ffffff 550%);
+}
+
+.bg-right {
+    border-radius: 0px 150px 150px 0px;
+    background: linear-gradient(to right, #ed302c 0%, #ffffff 550%);
+}
+
 #FurnitureShipping {
     display: none;
 }
