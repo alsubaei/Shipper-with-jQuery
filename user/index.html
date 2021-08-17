@@ -22,7 +22,7 @@
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse bg-red justify-content-end" id="collapsibleNavbar">
@@ -40,7 +40,7 @@
                     <a class="nav-link" href="#">For Drivers</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class=" nav-link pr-5 pl-5 login" href="#login">Login</a>
+                    <a class=" nav-link pr-5 pl-5 login login_btn" href="#login">Login</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
                     <a class="nav-link" href="#">العربية</a>
@@ -57,9 +57,11 @@
             <p class="font-weight-bold"><small> Sign Up to see your Shipping approximate cost</small></p>
             <ul class="nav">
                 <li class="nav-item mt-4 mr-4">
-                    <a href="#login" class="nav-link pr-5 pl-5">Log in</a></li>
+                    <a href="#login" class="nav-link pr-5 pl-5 login_btn">Log in</a>
+                </li>
                 <li class="nav-item mt-4 mr-4">
-                    <a href="#sign_up" class="nav-link pr-5 pl-5 login">Sign Up</a></li>
+                    <a href="#login" class="nav-link pr-5 pl-5 login signup_btn">Sign Up</a>
+                </li>
             </ul>
         </div>
         <div class="home_end">
@@ -115,46 +117,90 @@
                 </div>
                 <div class="home" style="margin-left: 170px;">
 
-                    <form class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
+                    <form class="border bg-light pr-5 pl-5 pt-3 pb-1" action="" id="login_form">
                         <h6 class="text-body text-center">
                             <b>Log in</b>
                         </h6>
                         <div class="form-group mt-4 mb-n4">
                             <label for="pwd" class="text-body small">E-Mail address</label>
-                            <input type="email" class="form-control" placeholder="Example@example.com" id="email">
-                            <p class="text-red text-right small">
+                            <input type="email" class="form-control" placeholder="Example@example.com" id="email" required>
+                            <p class="text-red text-right small" id="forgot_password">
                                 <i>forgot Password?</i>
                             </p>
                         </div>
                         <div class="form-group">
                             <label for="pwd" class="text-body small">Password</label>
-                            <input type="password" class="form-control" placeholder="********************" id="pwd">
-                            <p class="text-red small">
+                            <input type="password" class="form-control" placeholder="********************" id="pwd" required>
+                            <p class="text-red small" id="enter_password">
                                 <i>enter the password
-                            </i>
+                                </i>
                             </p>
                         </div>
-                        <button type=" submit" class="bg-red btn btn-block">Login</button>
+                        <button type="submit" class="bg-red btn btn-block" id="submit_login">Login</button>
                         <p class="text-body mt-3">Create free account?
-                            <a class="text-red">Signup <b>→ </b></a>
+                            <a class="text-red signup_btn">Signup <b>→ </b></a>
                         </p>
                     </form>
 
 
-                    <!-- 
-                    <form id="FurnitureShipping" class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
+
+                    <form id="signup_form" class="border bg-light pr-5 pl-5 pt-3 pb-1">
+                        <h6 class="text-body text-center">
+                            <b>Sign Up</b>
+                        </h6>
+                        <div class="form-group mt-4">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="Firstname" class="text-body small">First name</label>
+                                    <input type="text" class="form-control" name="Firstname" id="Firstname" required>
+                                </div>
+                                <div class="col">
+                                    <label for="Lastname" class="text-body small">Last name</label>
+                                    <input type="text" class="form-control" name="Lastname" id="Lastname" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="text-body small">E-Mail address</label>
+                            <input type="email" class="form-control" id="email2">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="text-body small">Mobile number</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd" class="text-body small">Password</label>
+                            <input type="password" class="form-control" id="pwd2">
+                        </div>
+                        <div class="form-group">
+                            <label for="repwd" class="text-body small">Re-type password</label>
+                            <input type="password" class="form-control" id="repwd">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-red btn" id="submit_signup">Sign up</button>
+                        </div>
+                        <p class="text-body mt-2">Already have account?
+                            <a class="text-red login_btn">Login <b>→ </b></a>
+                        </p>
+                    </form>
+
+
+
+                    <form id="FurnitureShipping_form" class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
                         <h6 class="text-body text-center">
                             <b>Shipment Details</b>
                         </h6>
                         <div class="form-group mt-4">
                             <div class="form-check-inline">
                                 <label for="Furniture" class="text-body small form-check-label">
-                                    <input  type="radio" class="form-check-input" id="Furniture" name="Shipping" checked />Furniture Shipping
+                                    <input type="radio" class="form-check-input Furniture" name="Shipping"
+                                        checked />Furniture Shipping
                                 </label>
                             </div>
                             <div class="form-check-inline">
 
-                                <label for="Car" class="text-body small"><input  type="radio" class="form-check-input" id="Car" name="Shipping">Car Shipping</label>
+                                <label for="Car" class="text-body small"><input type="radio"
+                                        class="form-check-input Car" name="Shipping">Car Shipping</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -175,19 +221,22 @@
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-switch">
-                                <label class="custom-control-label text-body small" for="LivingRooms">Is there Living Rooms?</label>
+                                <label class="custom-control-label text-body small" for="LivingRooms">Is there Living
+                                    Rooms?</label>
                                 <input type="checkbox" class="custom-control-input" id="LivingRooms" checked>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-switch">
-                                <label class="custom-control-label text-body small" for="Kitchen">Is there Kitchen?</label>
+                                <label class="custom-control-label text-body small" for="Kitchen">Is there
+                                    Kitchen?</label>
                                 <input type="checkbox" class="custom-control-input" id="Kitchen" checked>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-switch">
-                                <label class="custom-control-label text-body small" for="Elevator">Is there Elevator?</label>
+                                <label class="custom-control-label text-body small" for="Elevator">Is there
+                                    Elevator?</label>
                                 <input type="checkbox" class="custom-control-input" id="Elevator" checked>
                             </div>
                         </div>
@@ -222,7 +271,8 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col">
-                                    <label for="Furniture" class="text-body small form-check-label">Furniture Shipping</label>
+                                    <label for="Furniture" class="text-body small form-check-label">Furniture
+                                        Shipping</label>
                                 </div>
                                 <div class="col">
                                     <label for="Car" class="text-body small form-check-label">Car Shipping</label>
@@ -231,70 +281,41 @@
                         </div>
                         <div class="form-group">
                             <div class="form-check-inline">
-                                <label for="Furniture" class="text-body small form-check-label"><input type="radio" class="form-check-input" id="Furniture" name="Car" checked /><img src="../img/furniture shipping.png" height="50" width="100"></label>
+                                <label for="Furniture" class="text-body small form-check-label">
+                                    <input type="radio" class="form-check-input" name="Car" checked />
+                                    <!-- <input type="radio" class="form-check-input" id="Furniture" name="Car" checked /> -->
+                                    <img src="../img/furniture shipping.png" height="50" width="100">
+                                </label>
                             </div>
                             <div class="form-check-inline">
-                                <label for="Car" class="text-body small form-check-label"><input type="radio" class="form-check-input" id="Car" name="Car"><img src="../img/car shipping.png" height="50" width="100"></label>
+                                <label for="Car" class="text-body small form-check-label">
+                                    <input type="radio" class="form-check-input" name="Car">
+                                    <!-- <input type="radio" class="form-check-input" id="Car" name="Car"> -->
+                                    <img src="../img/car shipping.png" height="50" width="100"></label>
                             </div>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="bg-red btn btn-block">Check Cost </button>
                         </div>
                     </form>
-                    
-                    <form id="signup" class="border bg-light pr-5 pl-5 pt-3 pb-1">
-                        <h6 class="text-body text-center">
-                            <b>Sign Up</b>
-                        </h6>
-                        <div class="form-group mt-4">
-                            <div class="row">
-                                <div class="col">
-                                    <label for="Firstname" class="text-body small">First name</label>
-                                    <input type="text" class="form-control" name="Firstname" required>
-                                </div>
-                                <div class="col">
-                                    <label for="Lastname" class="text-body small">Last name</label>
-                                    <input type="text" class="form-control" name="Lastname" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="text-body small">E-Mail address</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="text-body small">Mobile number</label>
-                            <input type="tel" class="form-control" id="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd" class="text-body small">Password</label>
-                            <input type="password" class="form-control" id="pwd">
-                        </div>
-                        <div class="form-group">
-                            <label for="repwd" class="text-body small">Re-type password</label>
-                            <input type="password" class="form-control" id="repwd">
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-red btn">Sign up</button>
-                        </div>
-                        <p class="text-body mt-2">Already have account?
-                            <a class="text-red">Login <b>→ </b></a>
-                        </p>
-                    </form>
 
-                    
-                    <form id="CarShipping" class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
+
+
+
+                    <form id="CarShipping_form" class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
                         <h6 class="text-body text-center">
                             <b>Shipment Details</b>
                         </h6>
                         <div class="form-group mt-4">
                             <div class="form-check-inline">
                                 <label for="Furniture" class="text-body small form-check-label">
-                                    <input  type="radio" class="form-check-input" id="Furniture" name="Shipping" />Furniture Shipping
+                                    <input type="radio" class="form-check-input  Furniture" name="Shipping" />Furniture
+                                    Shipping
                                 </label>
                             </div>
                             <div class="form-check-inline">
-                                <label for="Car" class="text-body small"><input  type="radio" class="form-check-input" id="Car" name="Shipping" checked>Car Shipping</label>
+                                <label for="Car" class="text-body small"><input type="radio"
+                                        class="form-check-input Car" name="Shipping" checked>Car Shipping</label>
                             </div>
                         </div>
                         <div class="from-group">
@@ -333,13 +354,16 @@
                             <label for="Car" class="text-body small form-check-label">Car Shipping</label>
                         </div>
                         <div class="form-group">
-                            <label for="Car" class="text-body small form-check-label"><input type="radio" class="form-check-input" id="Car" name="Car"><img src="../img/car shipping.png" height="50" width="100"></label>
+                            <label for="Car" class="text-body small form-check-label">
+                                <input type="radio" class="form-check-input" name="Car">
+                                <!-- <input type="radio" class="form-check-input" id="Car" name="Car"> -->
+                                <img src="../img/car shipping.png" height="50" width="100"></label>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="bg-red btn btn-block">Check Cost </button>
                         </div>
-                    </form> 
-                -->
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -455,3 +479,4 @@
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/style.js"></script>
