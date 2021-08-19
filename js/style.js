@@ -1,18 +1,41 @@
+//******************************************************************************* */
+// global variables 
 const signup_form = document.forms["signup_form"];
-const signup_formlogin_form = document.forms["login_form"];
+const login_form = document.forms["login_form"];
 
 const signup = document.getElementsByClassName("signup_btn");
 const login = document.getElementsByClassName("login_btn");
 
+//input of password of login form
+const password = document.getElementById("pwd");
 
-document.getElementById("forgot_password").style.visibility = "hidden";
-document.getElementById("enter_password").style.visibility = "hidden";
-document.getElementById("signup_form").style.display = "none";
-document.getElementById("FurnitureShipping_form").style.display = "none";
-document.getElementById("CarShipping_form").style.display = "none";
+const FurnitureShipping_form = document.getElementById("FurnitureShipping_form");
+const CarShipping_form = document.getElementById("CarShipping_form");
+
+const focus = document.getElementsByClassName("form-check-inline");
 
 const Furniture = document.getElementsByClassName("Furniture");
 const Car = document.getElementsByClassName("Car");
+
+
+//******************************************************************************* */
+// first actions
+
+if (document.readyState === "loading") {
+    document.getElementById("forgot_password").style.visibility = "hidden";
+    document.getElementById("enter_password").style.visibility = "hidden";
+    signup_form.style.display = "none";
+    FurnitureShipping_form.style.display = "none";
+    CarShipping_form.style.display = "none";
+}
+
+
+//******************************************************************************* */
+//focus color
+// if (FurnitureShipping_form.style.display == "block") {}
+// if (CarShipping_form.style.display == "block") {}
+
+
 
 
 //******************************************************************************* */
@@ -40,17 +63,17 @@ const forgot_password = function() {
     document.getElementById("forgot_password").style.visibility = "visible"; //hidden
 };
 
-document.getElementById("pwd").addEventListener("focus", forgot_password);
+password.addEventListener("focus", forgot_password);
 
 
 //******************************************************************************* */
 //display "enter the password"
 
 const enter_password = function() {
-    if (!document.getElementById("pwd").value && document.getElementById("email").value) {
-        document.getElementById("pwd").required;
+    if (!password.value && document.getElementById("email").value) {
+        password.required;
         document.getElementById("enter_password").style.visibility = "visible"; //hidden
-        document.getElementById("pwd").style.background = "pink";
+        password.style.background = "pink";
     }
 };
 
@@ -61,8 +84,8 @@ document.getElementById("submit_login").addEventListener("click", enter_password
 //display Signup
 
 const display_signup = function() {
-    document.getElementById("signup_form").style.display = "block";
-    document.getElementById("login_form").style.display = "none";
+    signup_form.style.display = "block";
+    login_form.style.display = "none";
 };
 
 for (let i = 0; i < signup.length; i++)
@@ -73,8 +96,8 @@ for (let i = 0; i < signup.length; i++)
 //display Login
 
 const display_login = function() {
-    document.getElementById("login_form").style.display = "block";
-    document.getElementById("signup_form").style.display = "none";
+    login_form.style.display = "block";
+    signup_form.style.display = "none";
 };
 
 for (let i = 0; i < login.length; i++)
@@ -105,9 +128,13 @@ const display_FurnitureShipping = function(x) {
         if (!document.getElementById(x.elements[i].id).value) flag++;
     }
     if (flag == 0) {
-        document.getElementById("login_form").style.display = "none";
-        document.getElementById("signup_form").style.display = "none";
-        document.getElementById("FurnitureShipping_form").style.display = "block";
+        login_form.style.display = "none";
+        signup_form.style.display = "none";
+        FurnitureShipping_form.style.display = "block";
+        if (focus[0].className.includes("focus_color") == false && focus[4].className.includes("focus_color") == false) {
+            focus[0].className += " focus_color";
+            focus[4].className += " focus_color";
+        }
     }
 };
 
@@ -123,23 +150,65 @@ document.getElementById("submit_signup").addEventListener("click", function() {
 //display CarShipping_form
 
 const display_CarShipping_form = function() {
-    document.getElementById("FurnitureShipping_form").style.display = "none";
-    document.getElementById("CarShipping_form").style.display = "block";
+    FurnitureShipping_form.style.display = "none";
+    CarShipping_form.style.display = "block";
+
+    if (focus[7].className.includes("focus_color") == false && focus[10].className.includes("focus_color") == false) {
+        focus[7].className += " focus_color";
+        focus[10].className += " focus_color";
+    }
 };
 
 for (let i = 0; i < Car.length; i++) {
-    Car[i].addEventListener("focus", display_CarShipping_form);
+    Car[i].addEventListener("focus", display_CarShipping_form, true);
 }
 
 
-//******************************************************************************* */
+//******************************************************************************* */.
 //display FurnitureShipping_form
 
 const display_FurnitureShipping_form = function() {
-    document.getElementById("FurnitureShipping_form").style.display = "block";
-    document.getElementById("CarShipping_form").style.display = "none";
+    FurnitureShipping_form.style.display = "block";
+    CarShipping_form.style.display = "none";
 };
 
 for (let i = 0; i < Furniture.length; i++) {
-    Furniture[i].addEventListener("focus", display_FurnitureShipping_form);
+    Furniture[i].addEventListener("focus", display_FurnitureShipping_form, true);
 }
+
+
+//******************************************************************************* */.
+
+function incrementValue(e) {
+    e.preventDefault();
+    var fieldName = $(e.target).data('field');
+    var parent = $(e.target).closest('div');
+    var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+    if (!isNaN(currentVal)) {
+        parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+    } else {
+        parent.find('input[name=' + fieldName + ']').val(0);
+    }
+}
+
+function decrementValue(e) {
+    e.preventDefault();
+    var fieldName = $(e.target).data('field');
+    var parent = $(e.target).closest('div');
+    var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+    if (!isNaN(currentVal) && currentVal > 0) {
+        parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+    } else {
+        parent.find('input[name=' + fieldName + ']').val(0);
+    }
+}
+
+$('.input-group').on('click', '.button-plus', function(e) {
+    incrementValue(e);
+});
+
+$('.input-group').on('click', '.button-minus', function(e) {
+    decrementValue(e);
+});

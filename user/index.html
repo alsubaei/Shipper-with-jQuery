@@ -10,8 +10,10 @@
     <title>Shipper</title>
     <link rel="icon" href="../img/outline_local_library_black_24dp.png" sizes="16x16" type="image/jpg">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../font-awesome-5.15.4/css/all.css">
+    <link href="../font-awesome-5.15.4/css/fontawesome.css" rel="stylesheet">
+    <link href="../font-awesome-5.15.4/css/brands.css" rel="stylesheet">
+    <link href="../font-awesome-5.15.4/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -67,7 +69,7 @@
         <div class="home_end">
             <div class="d-flex flex-column">
                 <i class="fa fa-phone bg-success text-light fa-2x p-1 pr-2 pl-2 m-2 radius align-self-end"></i>
-                <i class="fa fa-comments-o  align-self-end m-2 p-1 fa-2x bg-red radius"></i>
+                <i class="fa fa-comments align-self-end m-2 p-1 fa-2x bg-red radius"></i>
                 <p class="text-light text-center align-self-center"><small>Discover more</small></p>
                 <br><img src="../img/arrow.png" alt="image" class="arrow radius align-self-center">
             </div>
@@ -155,8 +157,8 @@
                                     <input type="text" class="form-control" name="Firstname" id="Firstname" required>
                                 </div>
                                 <div class="col">
-                                    <label for="Lastname" class="text-body small">Last name</label>
-                                    <input type="text" class="form-control" name="Lastname" id="Lastname" required>
+                                    <label for="Lastname" class="text-body ml-1 small">Last name</label>
+                                    <input type="text" class="form-control ml-1" name="Lastname" id="Lastname" required>
                                 </div>
                             </div>
                         </div>
@@ -207,17 +209,32 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="Bedrooms" class="text-body small form-check-label">Bedrooms</label>
-                                    <input type="" id="Bedrooms" name="Bedrooms" value="Bedrooms" checked />
+                                    <div class="input-group">
+                                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                                        <input type="number" step="1" max="" value="2" name="quantity" class="quantity-field">
+                                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                                    </div>
+                                    <!-- <input type="" id="Bedrooms" name="Bedrooms" value="Bedrooms" checked /> -->
                                 </div>
                                 <div class="col">
                                     <label for="Apartment" class="text-body small">Apartment Floor</label>
-                                    <input type="" id="Apartment" name="Apartment" value="Apartment Floor">
+                                    <div class="input-group">
+                                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                                        <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
+                                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                                    </div>
+                                    <!-- <input type="" id="Apartment" name="Apartment" value="Apartment Floor"> -->
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="Electronic" class="text-body small">Electronic Appliance</label>
-                            <input type="" id="Electronic" name="Electronic" value="Electronic Appliance">
+                            <div class="input-group">
+                                <input type="button" value="-" class="button-minus" data-field="quantity">
+                                <input type="number" step="1" max="" value="2" name="quantity" class="quantity-field">
+                                <input type="button" value="+   " class="button-plus" data-field="quantity">
+                            </div>
+                            <!-- <input type="" id="Electronic" name="Electronic" value="Electronic Appliance"> -->
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-switch">
@@ -254,7 +271,7 @@
                             <div class="input-group">
                                 <input type="" class="form-control" id="to" placeholder="Street on, Governorate">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-location-arrow"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-location"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -354,10 +371,12 @@
                             <label for="Car" class="text-body small form-check-label">Car Shipping</label>
                         </div>
                         <div class="form-group">
-                            <label for="Car" class="text-body small form-check-label">
-                                <input type="radio" class="form-check-input" name="Car">
-                                <!-- <input type="radio" class="form-check-input" id="Car" name="Car"> -->
-                                <img src="../img/car shipping.png" height="50" width="100"></label>
+                            <div class="form-check-inline">
+                                <label for="Car" class="text-body small form-check-label">
+                                    <input type="radio" class="form-check-input" name="Car" checked>
+                                    <!-- <input type="radio" class="form-check-input" id="Car" name="Car"> -->
+                                    <img src="../img/car shipping.png" height="50" width="100"></label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="bg-red btn btn-block">Check Cost </button>
@@ -473,10 +492,16 @@
             <h6 class="text-center mt-5"> All Rights Reserved</h6>
         </div>
     </div>
+
+    <script defer src="../font-awesome-5.15.4/js/brands.js"></script>
+    <script defer src="../font-awesome-5.15.4/js/solid.js"></script>
+    <script defer src="../font-awesome-5.15.4/js/fontawesome.js"></script>
+    <script defer src="../font-awesome-5.15.4/js/all.js">
+    </script>
+    <!-- <script src="../js/jquery-3.6.0.min.js"></script> -->
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/style.js"></script>
 </body>
 
 </html>
-<script src="../js/jquery-3.6.0.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/style.js"></script>
