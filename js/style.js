@@ -1,5 +1,7 @@
 //******************************************************************************* */
 // global variables 
+
+
 const signup_form = document.forms["signup_form"];
 const login_form = document.forms["login_form"];
 
@@ -34,16 +36,16 @@ if (document.readyState === "loading") {
 //focus color
 // if (FurnitureShipping_form.style.display == "block") {}
 // if (CarShipping_form.style.display == "block") {}
-
-
-
-
+ 
 //******************************************************************************* */
 //display "color of empty fields"
 
 function background_pink() {
-    if (!document.getElementById("email").value)
+
+    if (!document.getElementById("email").value){
         document.getElementById("email").style.background = "pink";
+    }
+        
 
     for (let i = 0; i < signup_form.length - 1; i++) {
         if (!document.getElementById(signup_form.elements[i].id).value)
@@ -51,7 +53,7 @@ function background_pink() {
     }
 }
 
-document.getElementById("submit_login").addEventListener("click", background_pink);
+//document.getElementById("submit_login").addEventListener("click", background_pink);
 document.getElementById("submit_signup").addEventListener("click", background_pink);
 
 
@@ -74,15 +76,17 @@ const enter_password = function() {
         password.required;
         document.getElementById("enter_password").style.visibility = "visible"; //hidden
         password.style.background = "pink";
+        return false;
     }
+    return true;
 };
 
-document.getElementById("submit_login").addEventListener("click", enter_password);
+//document.getElementById("submit_login").addEventListener("click", enter_password);
 
 
 //******************************************************************************* */
 //display Signup
-
+ 
 const display_signup = function() {
     signup_form.style.display = "block";
     login_form.style.display = "none";
@@ -91,10 +95,10 @@ const display_signup = function() {
 for (let i = 0; i < signup.length; i++)
     signup[i].addEventListener("click", display_signup);
 
-
+ 
 //******************************************************************************* */
 //display Login
-
+ 
 const display_login = function() {
     login_form.style.display = "block";
     signup_form.style.display = "none";
@@ -103,7 +107,7 @@ const display_login = function() {
 for (let i = 0; i < login.length; i++)
     login[i].addEventListener("click", display_login);
 
-
+ 
 //******************************************************************************* */
 //disdisplay "color of empty fields of sign up"
 
@@ -139,8 +143,12 @@ const display_FurnitureShipping = function(x) {
 };
 
 document.getElementById("submit_login").addEventListener("click", function() {
-    display_FurnitureShipping(login_form)
+    if(!enter_password())
+        background_pink();
+    else
+        display_FurnitureShipping(login_form);
 });
+
 document.getElementById("submit_signup").addEventListener("click", function() {
     display_FurnitureShipping(signup_form)
 });
