@@ -15,6 +15,33 @@
     <link href="../font-awesome-5.15.4/css/brands.css" rel="stylesheet">
     <link href="../font-awesome-5.15.4/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+
+
+    <style>
+        input[type="date"] {
+            width: 130px;
+            padding-right: 3px;
+        }
+        
+         ::-webkit-datetime-edit-fields-wrapper {
+            display: none;
+        }
+        
+        input[type="time"]:checked ::-webkit-datetime-edit-fields-wrapper {
+            display: block;
+        }
+        
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            background-image: url(../img/clock.svg);
+            filter: opacity(30%);
+        }
+        
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background-image: url(../img/calendar.svg);
+            filter: opacity(30%);
+            margin: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,10 +63,10 @@
                     <a class="nav-link" href="#Download">Download</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#">About us</a>
+                    <a class="nav-link" href="#topics">About us</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#">For Drivers</a>
+                    <a class="nav-link" href="#Services">For Drivers</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
                     <a class=" nav-link pr-5 pl-5 login login_btn" href="#login">Login</a>
@@ -75,7 +102,7 @@
             </div>
         </div>
     </div>
-    <div class="down-left bg-red">
+    <div class="down-left bg-red" id="Download">
         <div class="container-fluid" style="height: 630px;">
             <br>
             <br>
@@ -193,130 +220,157 @@
                             <b>Shipment Details</b>
                         </h6>
                         <div class="form-group mt-4">
-                            <div class="form-check-inline">
-                                <label for="Furniture" class="text-body small form-check-label">
-                                    <input type="radio" class="form-check-input Furniture" name="Shipping"
-                                        checked />Furniture Shipping
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-
-                                <label for="Car" class="text-body small"><input type="radio"
-                                        class="form-check-input Car" name="Shipping">Car Shipping</label>
+                            <div class="row">
+                                <div class="form-check-inline col-3">
+                                    <label class="container_of_radio text-body small">
+                                        Furniture
+                                        <input type="radio" name="radio" class="form-check-input Furniture" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-3 m-auto">
+                                    <label class="container_of_radio text-body small">
+                                        Car
+                                        <input type="radio" name="radio" class="form-check-input Car">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-3">
+                                    <label class="container_of_radio text-body small">
+                                        Goods
+                                        <input type="radio" name="radio" class=" form-check-input Goods">
+                                        <span class=" checkmark "></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col">
                                     <label for="Bedrooms" class="text-body small form-check-label">Bedrooms</label>
-                                    <div class="input-group">
+                                    <div class="input-group m-0">
                                         <input type="button" value="-" class="button-minus" data-field="quantity">
                                         <input type="number" step="1" max="" value="2" name="quantity" class="quantity-field">
                                         <input type="button" value="+" class="button-plus" data-field="quantity">
                                     </div>
-                                    <!-- <input type="" id="Bedrooms" name="Bedrooms" value="Bedrooms" checked /> -->
                                 </div>
                                 <div class="col">
                                     <label for="Apartment" class="text-body small">Apartment Floor</label>
-                                    <div class="input-group">
+                                    <div class="input-group m-0">
                                         <input type="button" value="-" class="button-minus" data-field="quantity">
                                         <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
                                         <input type="button" value="+" class="button-plus" data-field="quantity">
                                     </div>
-                                    <!-- <input type="" id="Apartment" name="Apartment" value="Apartment Floor"> -->
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="Electronic" class="text-body small">Electronic Appliance</label>
-                            <div class="input-group">
+                            <div class="input-group m-0">
                                 <input type="button" value="-" class="button-minus" data-field="quantity">
                                 <input type="number" step="1" max="" value="2" name="quantity" class="quantity-field">
                                 <input type="button" value="+   " class="button-plus" data-field="quantity">
                             </div>
-                            <!-- <input type="" id="Electronic" name="Electronic" value="Electronic Appliance"> -->
                         </div>
                         <div class="form-group">
-                            <div class="custom-control custom-switch">
-                                <label class="custom-control-label text-body small" for="LivingRooms">Is there Living
-                                    Rooms?</label>
-                                <input type="checkbox" class="custom-control-input" id="LivingRooms" checked>
+                            <div class="row">
+                                <div class="col-7"><span class="text-body small ml-1">Is there Living Rooms?</span>
+                                </div>
+                                <div class="col-2">
+                                    <label class="switch ">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="custom-control custom-switch">
-                                <label class="custom-control-label text-body small" for="Kitchen">Is there
-                                    Kitchen?</label>
-                                <input type="checkbox" class="custom-control-input" id="Kitchen" checked>
+                            <div class="row">
+                                <div class="col-7">
+                                    <span class="text-body small ml-1">Is there Kitchen?</span>
+                                </div>
+                                <div class="col-2">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="custom-control custom-switch">
-                                <label class="custom-control-label text-body small" for="Elevator">Is there
-                                    Elevator?</label>
-                                <input type="checkbox" class="custom-control-input" id="Elevator" checked>
+                            <div class="row">
+                                <div class="col-7"><span class="text-body small ml-1">Is there Elevator?</span>
+                                </div>
+                                <div class="col-2">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="from" class="text-body small form-check-label">From</label>
-                            <div class="input-group">
+                            <div class="input-group m-0">
                                 <input type="" class="form-control" id="from" placeholder="Street on, Governorate">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-location-arrow"></i></span>
+                                    <span class="input-group-text"><img style="filter: opacity(30%) ;"
+                                            src="../img/my_location_black_24dp.svg"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="to" class="text-body small form-check-label">To</label>
-                            <div class="input-group">
+                            <div class="input-group m-0">
                                 <input type="" class="form-control" id="to" placeholder="Street on, Governorate">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-location"></i></span>
+                                    <span class="input-group-text"><img style="filter: opacity(30%) ;"
+                                            src="../img/my_location_black_24dp.svg"></span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check-inline">
-                                <label for="Date" class="text-body small form-check-label">Shipping Date</label>
-                                <input type="date" id="Shipping Date" name="Shipping Date" />
-                            </div>
-                            <div class="form-check-inline">
-                                <label for="time" class="text-body small">Time</label>
-                                <input type="time" id="time" name="time">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col">
-                                    <label for="Furniture" class="text-body small form-check-label">Furniture
-                                        Shipping</label>
+                                <div class="col-5">
+                                    <label for="Date" class="text-body small form-check-label">Shipping Date</label>
+                                    <input type="date" id="Shipping Date" name="Shipping Date" />
                                 </div>
-                                <div class="col">
-                                    <label for="Car" class="text-body small form-check-label">Car Shipping</label>
+                                <div class="col-1"></div>
+                                <div class="col-5">
+                                    <label for="time" class="text-body small form-check-label" value="">Time</label>
+                                    <input type="time" id="time" name="time">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="form-check-inline">
-                                <label for="Furniture" class="text-body small form-check-label">
-                                    <input type="radio" class="form-check-input" name="Car" checked />
-                                    <!-- <input type="radio" class="form-check-input" id="Furniture" name="Car" checked /> -->
-                                    <img src="../img/furniture shipping.png" height="50" width="100">
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label for="Car" class="text-body small form-check-label">
-                                    <input type="radio" class="form-check-input" name="Car">
-                                    <!-- <input type="radio" class="form-check-input" id="Car" name="Car"> -->
-                                    <img src="../img/car shipping.png" height="50" width="100"></label>
+                            <div class="row">
+                                <div class="col-5">
+                                    <label for="Furniture" class="text-body small form-check-label">Furniture
+                                        Shipping</label>
+                                    <div class="form-check-inline"><label class="container_of_radio text-body small">
+                                            <img src="../img/furniture shipping.png" height="50" width="100">
+                                            <input type="radio" name="radio1" class="form-check-input" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                                <div class="col-5">
+                                    <label for="Car" class="text-body small form-check-label">Goods Shipping</label>
+                                    <div class="form-check-inline"><label class="container_of_radio text-body small">
+                                            <img src="../img/goods shipping.png" height="50" width="100">
+                                            <input type="radio" name="radio1" class="form-check-input">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <button type="submit" class="bg-red btn btn-block">Check Cost </button>
                         </div>
                     </form>
-
-
 
 
                     <form id="CarShipping_form" class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
@@ -324,58 +378,166 @@
                             <b>Shipment Details</b>
                         </h6>
                         <div class="form-group mt-4">
-                            <div class="form-check-inline">
-                                <label for="Furniture" class="text-body small form-check-label">
-                                    <input type="radio" class="form-check-input  Furniture" name="Shipping" />Furniture
-                                    Shipping
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label for="Car" class="text-body small"><input type="radio"
-                                        class="form-check-input Car" name="Shipping" checked>Car Shipping</label>
+                            <div class="row">
+                                <div class="form-check-inline col-3">
+                                    <label class="container_of_radio text-body small">
+                                        Furniture
+                                        <input type="radio" name="radioCar" class="form-check-input Furniture">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-3 m-auto">
+                                    <label class="container_of_radio text-body small">
+                                        Car
+                                        <input type="radio" name="radioCar" class="form-check-input Car" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-3">
+                                    <label class="container_of_radio text-body small">
+                                        Goods
+                                        <input type="radio" name="radioCar" class=" form-check-input Goods">
+                                        <span class=" checkmark "></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                        <div class="from-group">
+                        <div class="from-group mb-3">
                             <label for="type" class="text-body small">Car Type</label>
                             <input type="text" class="form-control" name="type" required>
                         </div>
                         <div class="form-group">
                             <label for="from" class="text-body small form-check-label">From</label>
-                            <div class="input-group">
+                            <div class="input-group m-0">
                                 <input type="" class="form-control" id="from" placeholder="Street on, Governorate">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-location-arrow"></i></span>
+                                    <span class="input-group-text"><img style="filter: opacity(30%) ;"
+                                            src="../img/my_location_black_24dp.svg"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="to" class="text-body small form-check-label">To</label>
-                            <div class="input-group">
+                            <div class="input-group m-0">
                                 <input type="" class="form-control" id="to" placeholder="Street on, Governorate">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-location-arrow"></i></span>
+                                    <span class="input-group-text"><img style="filter: opacity(30%) ;"
+                                            src="../img/my_location_black_24dp.svg"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <label for="Date" class="text-body small form-check-label">Shipping Date</label>
+                                    <input type="date" id="Shipping Date" name="Shipping Date" value="" />
+                                </div>
+                                <div class="col-1"></div>
+                                <div class="col-5">
+                                    <label for="time" class="text-body small form-check-label" value="">Time</label>
+                                    <input type="time" id="time" name="time">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <label for="Car" class="text-body small form-check-label">Car Shipping</label>
+                                    <div class="form-check-inline"><label class="container_of_radio text-body small">
+                                            <img src="../img/car shipping.png" height="50" width="100">
+                                            <input type="radio" name="radio1" class="form-check-input Car" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="form-check-inline">
-                                <label for="Date" class="text-body small form-check-label">Shipping Date</label>
-                                <input type="date" id="Shipping Date" name="Shipping Date" />
+                            <button type="submit" class="bg-red btn btn-block">Check Cost </button>
+                        </div>
+                    </form>
+
+                    <form id="GoodsShipping_form" class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
+                        <h6 class="text-body text-center">
+                            <b>Shipment Details</b>
+                        </h6>
+                        <div class="form-group mt-4">
+                            <div class="row">
+                                <div class="form-check-inline col-3 pr-4">
+                                    <label class="container_of_radio text-body small">
+                                        Furniture
+                                        <input type="radio" name="radioGoods" class="form-check-input Furniture">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-3 m-auto">
+                                    <label class="container_of_radio text-body small">
+                                        Car
+                                        <input type="radio" name="radioGoods" class="form-check-input Car">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check-inline col-3">
+                                    <label class="container_of_radio text-body small">
+                                        Goods
+                                        <input type="radio" name="radioGoods" class=" form-check-input Goods" checked>
+                                        <span class=" checkmark "></span>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-check-inline">
-                                <label for="time" class="text-body small">Time</label>
-                                <input type="time" id="time" name="time">
+                        </div>
+                        <div class="from-group mb-3">
+                            <label for="type" class="text-body small">Car Type</label>
+                            <input type="text" class="form-control" name="type" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="from" class="text-body small form-check-label">From</label>
+                            <div class="input-group m-0">
+                                <input type="" class="form-control" id="from" placeholder="Street on, Governorate">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><img style="filter: opacity(30%) ;"
+                                            src="../img/my_location_black_24dp.svg"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="Car" class="text-body small form-check-label">Car Shipping</label>
+                            <label for="to" class="text-body small form-check-label">To</label>
+                            <div class="input-group m-0">
+                                <input type="" class="form-control" id="to" placeholder="Street on, Governorate">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><img style="filter: opacity(30%) ;"
+                                            src="../img/my_location_black_24dp.svg"></span>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <div class="form-check-inline">
-                                <label for="Car" class="text-body small form-check-label">
-                                    <input type="radio" class="form-check-input" name="Car" checked>
-                                    <!-- <input type="radio" class="form-check-input" id="Car" name="Car"> -->
-                                    <img src="../img/car shipping.png" height="50" width="100"></label>
+                            <div class="row">
+                                <div class="col-5">
+                                    <label for="Date" class="text-body small form-check-label">Shipping Date</label>
+                                    <input type="date" id="Shipping Date" name="Shipping Date" value="" />
+                                </div>
+                                <div class="col-1"></div>
+                                <div class="col-5">
+                                    <label for="time" class="text-body small form-check-label" value="">Time</label>
+                                    <input type="time" id="time" name="time">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <label for="Car" class="text-body small form-check-label">Goods Shipping</label>
+                                    <div class="form-check-inline"><label class="container_of_radio text-body small">
+                                            <img src="../img/goods shipping.png" height="50" width="100">
+                                            <input type="radio" name="radio1" class="form-check-input Car" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -493,12 +655,13 @@
         </div>
     </div>
 
+
     <script defer src="../font-awesome-5.15.4/js/brands.js"></script>
     <script defer src="../font-awesome-5.15.4/js/solid.js"></script>
     <script defer src="../font-awesome-5.15.4/js/fontawesome.js"></script>
     <script defer src="../font-awesome-5.15.4/js/all.js">
     </script>
-    <!-- <script src="../js/jquery-3.6.0.min.js"></script> -->
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/style.js"></script>
