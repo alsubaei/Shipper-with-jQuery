@@ -664,6 +664,13 @@
     <script src="../jQuery 3.6.0/jquery-3.6.0.js"></script>
     <script src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
     <script src="../js/style.js"></script>
+    <script>
+        $(".nav-link").on("click", function(){
+        $(".nav-link").removeClass("active");
+        $(this).addClass("active");
+     });
+    </script>
+    
 </body>
 
 </html>

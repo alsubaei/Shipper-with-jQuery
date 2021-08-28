@@ -141,6 +141,9 @@ button {
     color: rgba(255, 255, 255, .55)
 }
 
+.active{
+    color: rgba(1, 1, 1, .55) !important
+}
 .bg-light {
     background-color: #ffffff !important
 }
