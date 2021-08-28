@@ -57,16 +57,16 @@
         <div class="collapse navbar-collapse bg-red justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav bg-red">
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link yh" href="#">Home</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#Download">Download</a>
+                    <a class="nav-link yh" href="#Download">Download</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#topics">About us</a>
+                    <a class="nav-link yh" href="#topics">About us</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#Services">For Drivers</a>
+                    <a class="nav-link yh" href="#Services">For Drivers</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
                     <a class=" nav-link pr-5 pl-5 login login_btn" href="#login">Login</a>
@@ -665,10 +665,30 @@
     <script src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
     <script src="../js/style.js"></script>
     <script>
-        $(".nav-link").on("click", function(){
-        $(".nav-link").removeClass("active");
-        $(this).addClass("active");
-     });
+
+        let allLinks = document.getElementsByClassName("yh");
+        for (let i = 0; i < allLinks.length; i++){
+            allLinks[i].addEventListener("click", function(){
+                removeClass(allLinks,"active");
+                addClass(this,"active");
+            });
+        }
+ 
+
+        function removeClass(elemnts,removedCalssName){
+           
+            for (let i = 0; i < elemnts.length; i++) {
+               elemnts[i].classList.remove(removedCalssName);
+            }
+
+        }
+
+        function addClass(currentElement,addedClassname){
+            currentElement.classList.add(addedClassname);
+        }
+ 
+        
+        
     </script>
     
 </body>
