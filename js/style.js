@@ -134,34 +134,30 @@ const display_FurnitureShipping = function(x) {
     if (flag == 0) {
         login_form.style.display = "none";
         signup_form.style.display = "none";
-        FurnitureShipping_form.style.display = "block";
         bg_radio_button(FurnitureShipping_form);
-        // if (focus[0].className.includes("focus_color") == false && focus[3].className.includes("focus_color") == false) {
-        //     focus[0].className += " focus_color";
-        //     focus[3].className += " focus_color";
-        // }
+        FurnitureShipping_form.style.display = "block";
     }
 };
-
-
 
 document.getElementById("submit_login").addEventListener("click", function() {
     if (!enter_password())
         background_pink();
     else
         display_FurnitureShipping(login_form);
-    bg_radio_button(FurnitureShipping_form);
 });
 
- /**Yh 20082021 start:try onsubmit */
+/**Yh 20082021 start:try onsubmit */
 document.getElementById("submit_login").addEventListener("submit", function(event) {
-        event.preventDefault();
+    event.preventDefault();
 });
-
 /**Yh 20082021 End:try onsubmit */
 
 document.getElementById("submit_signup").addEventListener("click", function() {
-    display_FurnitureShipping(signup_form)
+    display_FurnitureShipping(signup_form);
+});
+
+document.getElementById("submit_signup").addEventListener("submit", function(event) {
+    event.preventDefault();
 });
 
 
@@ -169,14 +165,10 @@ document.getElementById("submit_signup").addEventListener("click", function() {
 //display CarShipping_form
 
 const display_CarShipping_form = function() {
+    bg_radio_button(CarShipping_form);
     CarShipping_form.style.display = "block";
     FurnitureShipping_form.style.display = "none";
     GoodsShipping_form.style.display = "none";
-    bg_radio_button(CarShipping_form);
-    // if (focus[6].className.includes("focus_color") == false && focus[8].className.includes("focus_color") == false) {
-    //     focus[6].className += " focus_color";
-    //     focus[8].className += " focus_color";
-    // }
 };
 
 for (let i = 0; i < Car.length; i++) {
@@ -187,14 +179,10 @@ for (let i = 0; i < Car.length; i++) {
 //display GoodsShipping_form
 
 const display_GoodsShipping_form = function() {
+    bg_radio_button(GoodsShipping_form);
     GoodsShipping_form.style.display = "block";
     CarShipping_form.style.display = "none";
     FurnitureShipping_form.style.display = "none";
-    bg_radio_button(GoodsShipping_form);
-    // if (focus[11].className.includes("focus_color") == false && focus[12].className.includes("focus_color") == false) {
-    //     focus[11].className += " focus_color";
-    //     focus[12].className += " focus_color";
-    // }
 };
 
 for (let i = 0; i < Goods.length; i++) {
@@ -206,10 +194,10 @@ for (let i = 0; i < Goods.length; i++) {
 //display FurnitureShipping_form
 
 const display_FurnitureShipping_form = function() {
+    bg_radio_button(FurnitureShipping_form);
     FurnitureShipping_form.style.display = "block";
     CarShipping_form.style.display = "none";
     GoodsShipping_form.style.display = "none";
-    bg_radio_button(FurnitureShipping_form);
 };
 
 for (let i = 0; i < Furniture.length; i++) {
@@ -250,7 +238,6 @@ function removeClass(elemnts, removedCalssName) {
     for (let i = 0; i < elemnts.length; i++) {
         elemnts[i].classList.remove(removedCalssName);
     }
-
 }
 
 function addClass(currentElement, addedClassname) {
