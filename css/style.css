@@ -282,8 +282,20 @@ form {
 
 .focus_color {
     background: #ed302c52;
-    padding: 7px;
     border-radius: 3px;
+}
+
+.blur_color {
+    background: #e3e3e3;
+    border-radius: 3px;
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.nav-active-style {
+    color: rgba(255, 255, 255, .55) !important
 }
 
 

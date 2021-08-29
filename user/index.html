@@ -16,32 +16,6 @@
     <link href="../font-awesome-5.15.4/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
-
-    <style>
-        input[type="date"] {
-            width: 130px;
-            padding-right: 3px;
-        }
-        
-         ::-webkit-datetime-edit-fields-wrapper {
-            display: none;
-        }
-        
-        input[type="time"]:checked ::-webkit-datetime-edit-fields-wrapper {
-            display: block;
-        }
-        
-        input[type="time"]::-webkit-calendar-picker-indicator {
-            background-image: url(../img/clock.svg);
-            filter: opacity(30%);
-        }
-        
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            background-image: url(../img/calendar.svg);
-            filter: opacity(30%);
-            margin: 0px;
-        }
-    </style>
 </head>
 
 <body>
@@ -57,22 +31,22 @@
         <div class="collapse navbar-collapse bg-red justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav bg-red">
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link nav-active" href="#">Home</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#Download">Download</a>
+                    <a class="nav-link nav-active" href="#Download">Download</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#topics">About us</a>
+                    <a class="nav-link nav-active" href="#topics">About us</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#Services">For Drivers</a>
+                    <a class="nav-link nav-active" href="#Services">For Drivers</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
                     <a class=" nav-link pr-5 pl-5 login login_btn" href="#login">Login</a>
                 </li>
                 <li class="nav-item mr-1 ml-1">
-                    <a class="nav-link" href="#">العربية</a>
+                    <a class="nav-link nav-active" href="#">العربية</a>
                 </li>
             </ul>
         </div>
@@ -167,7 +141,7 @@
                         </div>
                         <button type="submit" class="bg-red btn btn-block" id="submit_login">Login</button>
                         <p class="text-body mt-3">Create free account?
-                            <a class="text-red signup_btn">Signup <b>→ </b></a>
+                            <a class="text-red signup_btn cursor_pointer">Signup <b>→ </b></a>
                         </p>
                     </form>
 
@@ -209,7 +183,7 @@
                             <button type="submit" class="bg-red btn" id="submit_signup">Sign up</button>
                         </div>
                         <p class="text-body mt-2">Already have account?
-                            <a class="text-red login_btn">Login <b>→ </b></a>
+                            <a class="text-red login_btn cursor_pointer">Login <b>→ </b></a>
                         </p>
                     </form>
 
@@ -221,7 +195,7 @@
                         </h6>
                         <div class="form-group mt-4">
                             <div class="row">
-                                <div class="form-check-inline col-3">
+                                <div class="col-3 form-check-inline ">
                                     <label class="container_of_radio text-body small">
                                         Furniture
                                         <input type="radio" name="radio" class="form-check-input Furniture" checked>

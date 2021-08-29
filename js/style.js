@@ -20,6 +20,9 @@ const Furniture = document.getElementsByClassName("Furniture");
 const Car = document.getElementsByClassName("Car");
 const Goods = document.getElementsByClassName("Goods");
 
+
+const Header_Links = document.getElementsByClassName("nav-active");
+
 //******************************************************************************* */
 // first actions
 
@@ -50,7 +53,7 @@ function background_pink() {
     }
 }
 
-//document.getElementById("submit_login").addEventListener("click", background_pink);
+document.getElementById("submit_login").addEventListener("click", background_pink);
 document.getElementById("submit_signup").addEventListener("click", background_pink);
 
 
@@ -78,7 +81,7 @@ const enter_password = function() {
     return true;
 };
 
-//document.getElementById("submit_login").addEventListener("click", enter_password);
+document.getElementById("submit_login").addEventListener("click", enter_password);
 
 
 //******************************************************************************* */
@@ -132,10 +135,11 @@ const display_FurnitureShipping = function(x) {
         login_form.style.display = "none";
         signup_form.style.display = "none";
         FurnitureShipping_form.style.display = "block";
-        if (focus[0].className.includes("focus_color") == false && focus[3].className.includes("focus_color") == false) {
-            focus[0].className += " focus_color";
-            focus[3].className += " focus_color";
-        }
+        bg_radio_button(FurnitureShipping_form);
+        // if (focus[0].className.includes("focus_color") == false && focus[3].className.includes("focus_color") == false) {
+        //     focus[0].className += " focus_color";
+        //     focus[3].className += " focus_color";
+        // }
     }
 };
 
@@ -144,6 +148,7 @@ document.getElementById("submit_login").addEventListener("click", function() {
         background_pink();
     else
         display_FurnitureShipping(login_form);
+    bg_radio_button(FurnitureShipping_form);
 });
 
 document.getElementById("submit_signup").addEventListener("click", function() {
@@ -158,7 +163,7 @@ const display_CarShipping_form = function() {
     CarShipping_form.style.display = "block";
     FurnitureShipping_form.style.display = "none";
     GoodsShipping_form.style.display = "none";
-
+    bg_radio_button(CarShipping_form);
     // if (focus[6].className.includes("focus_color") == false && focus[8].className.includes("focus_color") == false) {
     //     focus[6].className += " focus_color";
     //     focus[8].className += " focus_color";
@@ -176,7 +181,7 @@ const display_GoodsShipping_form = function() {
     GoodsShipping_form.style.display = "block";
     CarShipping_form.style.display = "none";
     FurnitureShipping_form.style.display = "none";
-
+    bg_radio_button(GoodsShipping_form);
     // if (focus[11].className.includes("focus_color") == false && focus[12].className.includes("focus_color") == false) {
     //     focus[11].className += " focus_color";
     //     focus[12].className += " focus_color";
@@ -195,8 +200,50 @@ const display_FurnitureShipping_form = function() {
     FurnitureShipping_form.style.display = "block";
     CarShipping_form.style.display = "none";
     GoodsShipping_form.style.display = "none";
+    bg_radio_button(FurnitureShipping_form);
 };
 
 for (let i = 0; i < Furniture.length; i++) {
     Furniture[i].addEventListener("click", display_FurnitureShipping_form, true);
+}
+
+
+//******************************************************************************* */.
+//focus and blur background color of radio button
+
+const bg_radio_button = function(x) {
+    const buttons = x.querySelectorAll('input[type="radio"]');
+    const bg_button = x.getElementsByClassName("form-check-inline");
+    for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].checked) {
+            bg_button[i].classList.remove("focus_color");
+            bg_button[i].classList.add("focus_color");
+        } else {
+            bg_button[i].classList.remove("blur_color");
+            bg_button[i].classList.add("blur_color");
+        }
+    }
+};
+
+
+//******************************************************************************* */.
+//The style of active links in header
+//made by Eng_yaserhadi
+
+for (let i = 0; i < Header_Links.length; i++) {
+    Header_Links[i].addEventListener("click", function() {
+        removeClass(Header_Links, "nav-active-style");
+        addClass(this, "nav-active-style");
+    });
+}
+
+function removeClass(elemnts, removedCalssName) {
+    for (let i = 0; i < elemnts.length; i++) {
+        elemnts[i].classList.remove(removedCalssName);
+    }
+
+}
+
+function addClass(currentElement, addedClassname) {
+    currentElement.classList.add(addedClassname);
 }
