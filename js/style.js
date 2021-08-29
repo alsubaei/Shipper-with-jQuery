@@ -143,6 +143,8 @@ const display_FurnitureShipping = function(x) {
     }
 };
 
+
+
 document.getElementById("submit_login").addEventListener("click", function() {
     if (!enter_password())
         background_pink();
@@ -150,6 +152,13 @@ document.getElementById("submit_login").addEventListener("click", function() {
         display_FurnitureShipping(login_form);
     bg_radio_button(FurnitureShipping_form);
 });
+
+ /**Yh 20082021 start:try onsubmit */
+document.getElementById("submit_login").addEventListener("submit", function(event) {
+        event.preventDefault();
+});
+
+/**Yh 20082021 End:try onsubmit */
 
 document.getElementById("submit_signup").addEventListener("click", function() {
     display_FurnitureShipping(signup_form)
