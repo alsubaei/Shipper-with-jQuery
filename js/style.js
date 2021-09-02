@@ -46,8 +46,10 @@ const bg_radio_button = function(x) {
     for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].checked) {
             bg_button[i].classList.remove("focus_color");
+            bg_button[i].classList.remove("blur_color");
             bg_button[i].classList.add("focus_color");
         } else {
+            bg_button[i].classList.remove("focus_color");
             bg_button[i].classList.remove("blur_color");
             bg_button[i].classList.add("blur_color");
         }
@@ -86,6 +88,8 @@ const display_FurnitureShipping_form = function() {
     FurnitureShipping_form.getElementsByClassName("Furniture")[0].checked = "true";
     if (g != 1)
         FurnitureShipping_form.getElementsByClassName("Furniture")[1].checked = "true";
+    if (g == 1)
+        bg_radio_button(FurnitureShipping_form);
     FurnitureShipping_form.style.display = "block";
 };
 
