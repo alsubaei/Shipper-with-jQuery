@@ -20,6 +20,7 @@ const Furniture = document.getElementsByClassName("Furniture");
 const Car = document.getElementsByClassName("Car");
 const Goods = document.getElementsByClassName("Goods");
 
+let g;
 
 const Header_Links = document.getElementsByClassName("nav-active");
 
@@ -30,10 +31,70 @@ if (document.readyState === "loading") {
     document.getElementById("forgot_password").style.visibility = "hidden";
     document.getElementById("enter_password").style.visibility = "hidden";
     signup_form.style.display = "none";
-    login_form.style.display = "block";
     FurnitureShipping_form.style.display = "none";
     CarShipping_form.style.display = "none";
     GoodsShipping_form.style.display = "none";
+    login_form.style.display = "block";
+}
+
+//******************************************************************************* */.
+//focus and blur background color of radio button
+
+const bg_radio_button = function(x) {
+    const buttons = x.querySelectorAll('input[type="radio"]');
+    const bg_button = x.getElementsByClassName("form-check-inline");
+    for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].checked) {
+            bg_button[i].classList.remove("focus_color");
+            bg_button[i].classList.remove("blur_color");
+            bg_button[i].classList.add("focus_color");
+        } else {
+            bg_button[i].classList.remove("focus_color");
+            bg_button[i].classList.remove("blur_color");
+            bg_button[i].classList.add("blur_color");
+        }
+    }
+};
+
+
+//******************************************************************************* */.
+//The style of active links in header
+//made by Eng_yaserhadi
+
+for (let i = 0; i < Header_Links.length; i++) {
+    Header_Links[i].addEventListener("click", function() {
+        removeClass(Header_Links, "nav-active-style");
+        addClass(this, "nav-active-style");
+    });
+}
+
+function removeClass(elemnts, removedCalssName) {
+    for (let i = 0; i < elemnts.length; i++) {
+        elemnts[i].classList.remove(removedCalssName);
+    }
+}
+
+function addClass(currentElement, addedClassname) {
+    currentElement.classList.add(addedClassname);
+}
+
+
+//******************************************************************************* */.
+//display FurnitureShipping_form
+
+const display_FurnitureShipping_form = function() {
+    CarShipping_form.style.display = "none";
+    GoodsShipping_form.style.display = "none";
+    FurnitureShipping_form.getElementsByClassName("Furniture")[0].checked = "true";
+    if (g != 1)
+        FurnitureShipping_form.getElementsByClassName("Furniture")[1].checked = "true";
+    if (g == 1)
+        bg_radio_button(FurnitureShipping_form);
+    FurnitureShipping_form.style.display = "block";
+};
+
+for (let i = 0; i < Furniture.length; i++) {
+    Furniture[i].addEventListener("click", display_FurnitureShipping_form, true);
 }
 
 
@@ -88,8 +149,11 @@ document.getElementById("submit_login").addEventListener("click", enter_password
 //display Signup
 
 const display_signup = function() {
-    signup_form.style.display = "block";
     login_form.style.display = "none";
+    FurnitureShipping_form.style.display = "none";
+    CarShipping_form.style.display = "none";
+    GoodsShipping_form.style.display = "none"
+    signup_form.style.display = "block";
 };
 
 for (let i = 0; i < signup.length; i++)
@@ -100,8 +164,11 @@ for (let i = 0; i < signup.length; i++)
 //display Login
 
 const display_login = function() {
-    login_form.style.display = "block";
     signup_form.style.display = "none";
+    FurnitureShipping_form.style.display = "none";
+    CarShipping_form.style.display = "none";
+    GoodsShipping_form.style.display = "none"
+    login_form.style.display = "block";
 };
 
 for (let i = 0; i < login.length; i++)
@@ -134,6 +201,9 @@ const display_FurnitureShipping = function(x) {
     if (flag == 0) {
         login_form.style.display = "none";
         signup_form.style.display = "none";
+        for (let i = 0; i < Furniture.length; i++) {
+            Furniture[i].checked = "true";
+        }
         bg_radio_button(FurnitureShipping_form);
         FurnitureShipping_form.style.display = "block";
     }
@@ -165,10 +235,12 @@ document.getElementById("submit_signup").addEventListener("submit", function(eve
 //display CarShipping_form
 
 const display_CarShipping_form = function() {
-    bg_radio_button(CarShipping_form);
-    CarShipping_form.style.display = "block";
     FurnitureShipping_form.style.display = "none";
     GoodsShipping_form.style.display = "none";
+    CarShipping_form.getElementsByClassName("Car")[0].checked = "true";
+    CarShipping_form.getElementsByClassName("Car")[1].checked = "true";
+    bg_radio_button(CarShipping_form);
+    CarShipping_form.style.display = "block";
 };
 
 for (let i = 0; i < Car.length; i++) {
@@ -179,67 +251,19 @@ for (let i = 0; i < Car.length; i++) {
 //display GoodsShipping_form
 
 const display_GoodsShipping_form = function() {
-    bg_radio_button(GoodsShipping_form);
-    GoodsShipping_form.style.display = "block";
     CarShipping_form.style.display = "none";
     FurnitureShipping_form.style.display = "none";
+    GoodsShipping_form.getElementsByClassName("Goods")[0].checked = "true";
+    GoodsShipping_form.getElementsByClassName("Goods")[1].checked = "true";
+    bg_radio_button(GoodsShipping_form);
+    GoodsShipping_form.style.display = "block";
 };
 
 for (let i = 0; i < Goods.length; i++) {
-    Goods[i].addEventListener("click", display_GoodsShipping_form, true);
-}
-
-
-//******************************************************************************* */.
-//display FurnitureShipping_form
-
-const display_FurnitureShipping_form = function() {
-    bg_radio_button(FurnitureShipping_form);
-    FurnitureShipping_form.style.display = "block";
-    CarShipping_form.style.display = "none";
-    GoodsShipping_form.style.display = "none";
-};
-
-for (let i = 0; i < Furniture.length; i++) {
-    Furniture[i].addEventListener("click", display_FurnitureShipping_form, true);
-}
-
-
-//******************************************************************************* */.
-//focus and blur background color of radio button
-
-const bg_radio_button = function(x) {
-    const buttons = x.querySelectorAll('input[type="radio"]');
-    const bg_button = x.getElementsByClassName("form-check-inline");
-    for (let i = 0; i < buttons.length; i++) {
-        if (buttons[i].checked) {
-            bg_button[i].classList.remove("focus_color");
-            bg_button[i].classList.add("focus_color");
-        } else {
-            bg_button[i].classList.remove("blur_color");
-            bg_button[i].classList.add("blur_color");
-        }
+    if (i !== 1) {
+        Goods[i].addEventListener("click", display_GoodsShipping_form, true);
+    } else {
+        g = 1;
+        Goods[i].addEventListener("click", display_FurnitureShipping_form, true);
     }
-};
-
-
-//******************************************************************************* */.
-//The style of active links in header
-//made by Eng_yaserhadi
-
-for (let i = 0; i < Header_Links.length; i++) {
-    Header_Links[i].addEventListener("click", function() {
-        removeClass(Header_Links, "nav-active-style");
-        addClass(this, "nav-active-style");
-    });
-}
-
-function removeClass(elemnts, removedCalssName) {
-    for (let i = 0; i < elemnts.length; i++) {
-        elemnts[i].classList.remove(removedCalssName);
-    }
-}
-
-function addClass(currentElement, addedClassname) {
-    currentElement.classList.add(addedClassname);
 }
