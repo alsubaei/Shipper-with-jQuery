@@ -212,13 +212,17 @@ const bg_radio_button = function(x) {
     const buttons = x.querySelectorAll('input[type="radio"]');
     const bg_button = x.getElementsByClassName("form-check-inline");
     for (let i = 0; i < buttons.length; i++) {
-        if (buttons[i].checked) {
-            bg_button[i].classList.remove("focus_color");
-            bg_button[i].classList.add("focus_color");
-        } else {
-            bg_button[i].classList.remove("blur_color");
-            bg_button[i].classList.add("blur_color");
-        }
+        buttons[i].addEventListener('change', function() {
+            this.classList.remove("focus_color");
+            this.classList.remove("blur_color");
+             if (this.checked) {
+                
+                this.classList.add("focus_color");
+            } else {
+                
+                this.classList.add("blur_color");
+            } 
+        });
     }
 };
 
@@ -243,3 +247,52 @@ function removeClass(elemnts, removedCalssName) {
 function addClass(currentElement, addedClassname) {
     currentElement.classList.add(addedClassname);
 }
+
+//yh 04/09/2021
+
+//increase/decrease Bedrooms functions  
+  function add_Bedrooms() {
+    var value = parseInt(document.getElementById('Bedrooms_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('Bedrooms_number').value = value;
+  }
+  
+  function sub_Bedrooms() {
+    var value = parseInt(document.getElementById('Bedrooms_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('Bedrooms_number').value = value;
+  }
+
+  //increase/decrease Bedrooms functions
+   function add_Apartment() {
+    var value = parseInt(document.getElementById('Apartment_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('Apartment_number').value = value;
+  }
+  
+  function sub_Apartment() {
+    var value = parseInt(document.getElementById('Apartment_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('Apartment_number').value = value;
+  }
+  //increase/decrease Bedrooms functions
+   function add_Electronic() {
+    var value = parseInt(document.getElementById('Electronic_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('Electronic_number').value = value;
+  }
+  
+  function sub_Electronic() {
+    var value = parseInt(document.getElementById('Electronic_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('Electronic_number').value = value;
+  }
