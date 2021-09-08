@@ -37,8 +37,8 @@ if (document.readyState === "loading") {
     login_form.style.display = "block";
 }
 
-//******************************************************************************* */.
-//focus and blur background color of radio button
+// //******************************************************************************* */.
+// //focus and blur background color of radio button
 
 const bg_radio_button = function(x) {
     const buttons = x.querySelectorAll('input[type="radio"]');
@@ -55,6 +55,38 @@ const bg_radio_button = function(x) {
         }
     }
 };
+
+// const bg_radio_button = function(x) {
+//     const buttons = x.querySelectorAll('input[type="radio"]');
+//     const bg_button = x.getElementsByClassName("form-check-inline");
+//     for (let i = 0; i < buttons.length; i++) {
+//         buttons[i].addEventListener('change', function() {
+//             this.classList.remove("focus_color");
+//             this.classList.remove("blur_color");
+//             if (this.checked) {
+
+//                 this.classList.add("focus_color");
+//             } else {
+
+//                 this.classList.add("blur_color");
+//             }
+//         });
+//     }
+// }
+
+// $('.input-group').on('click', '.button-plus', function(e) {
+//     incrementValue(e);
+// });
+
+
+// $('.input-group').on('click', '.button-minus', function(e) {
+//     decrementValue(e);
+// });
+
+function addClass(currentElement, addedClassname) {
+    currentElement.classList.add(addedClassname);
+}
+
 
 
 //******************************************************************************* */.
@@ -272,36 +304,76 @@ for (let i = 0; i < Goods.length; i++) {
 //******************************************************************************* */
 //functions of plus and minus button
 
-function incrementValue(e) {
-    e.preventDefault();
-    var fieldName = $(e.target).data('field');
-    var parent = $(e.target).closest('div');
-    var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+// function incrementValue(e) {
+//     e.preventDefault();
+//     var fieldName = $(e.target).data('field');
+//     var parent = $(e.target).closest('div');
+//     var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
 
-    if (!isNaN(currentVal)) {
-        parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
-    } else {
-        parent.find('input[name=' + fieldName + ']').val(0);
-    }
+//     if (!isNaN(currentVal)) {
+//         parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+//     } else {
+//         parent.find('input[name=' + fieldName + ']').val(0);
+//     }
+// }
+
+// function decrementValue(e) {
+//     e.preventDefault();
+//     var fieldName = $(e.target).data('field');
+//     var parent = $(e.target).closest('div');
+//     var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+//     if (!isNaN(currentVal) && currentVal > 0) {
+//         parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+//     } else {
+//         parent.find('input[name=' + fieldName + ']').val(0);
+//     }
+// }
+// //******************************************************************************* */.
+//yh 04/09/2021
+
+//increase/decrease Bedrooms functions  
+function add_Bedrooms() {
+    var value = parseInt(document.getElementById('Bedrooms_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('Bedrooms_number').value = value;
 }
 
-function decrementValue(e) {
-    e.preventDefault();
-    var fieldName = $(e.target).data('field');
-    var parent = $(e.target).closest('div');
-    var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
-
-    if (!isNaN(currentVal) && currentVal > 0) {
-        parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
-    } else {
-        parent.find('input[name=' + fieldName + ']').val(0);
-    }
+function sub_Bedrooms() {
+    var value = parseInt(document.getElementById('Bedrooms_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('Bedrooms_number').value = value;
 }
 
-$('.input-group').on('click', '.button-plus', function(e) {
-    incrementValue(e);
-});
+//increase/decrease Bedrooms functions
+function add_Apartment() {
+    var value = parseInt(document.getElementById('Apartment_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('Apartment_number').value = value;
+}
 
-$('.input-group').on('click', '.button-minus', function(e) {
-    decrementValue(e);
-});
+function sub_Apartment() {
+    var value = parseInt(document.getElementById('Apartment_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('Apartment_number').value = value;
+}
+//increase/decrease Bedrooms functions
+function add_Electronic() {
+    var value = parseInt(document.getElementById('Electronic_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('Electronic_number').value = value;
+}
+
+function sub_Electronic() {
+    var value = parseInt(document.getElementById('Electronic_number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('Electronic_number').value = value;
+}

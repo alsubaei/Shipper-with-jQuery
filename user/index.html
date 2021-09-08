@@ -225,17 +225,17 @@
                                 <div class="col">
                                     <label for="Bedrooms" class="text-body small form-check-label">Bedrooms</label>
                                     <div class="input-group m-0">
-                                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                                        <input type="number" step="1" max="" value="2" name="quantity" class="quantity-field">
-                                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                                        <input type="button" value="-" class="button-minus" onclick="sub_Bedrooms()" >
+                                        <input type="number" id="Bedrooms_number" step="1" max="" value="2" name="quantity" class="quantity-field">
+                                        <input type="button" value="+" class="button-plus" onclick="add_Bedrooms()">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <label for="Apartment" class="text-body small">Apartment Floor</label>
                                     <div class="input-group m-0">
-                                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                                        <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
-                                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                                        <input type="button" value="-" class="button-minus" onclick="sub_Apartment()">
+                                        <input type="number" id="Apartment_number" step="1" max="" value="1" name="quantity" class="quantity-field">
+                                        <input type="button" value="+" class="button-plus" onclick="add_Apartment()">
                                     </div>
                                 </div>
                             </div>
@@ -243,9 +243,9 @@
                         <div class="form-group">
                             <label for="Electronic" class="text-body small">Electronic Appliance</label>
                             <div class="input-group m-0">
-                                <input type="button" value="-" class="button-minus" data-field="quantity">
-                                <input type="number" step="1" max="" value="2" name="quantity" class="quantity-field">
-                                <input type="button" value="+   " class="button-plus" data-field="quantity">
+                                <input type="button" value="-" class="button-minus" data-field="quantity" onclick="sub_Electronic()">
+                                <input type="number" id="Electronic_number" step="1" max="" value="2" name="quantity" class="quantity-field">
+                                <input type="button" value="+   " class="button-plus" data-field="quantity" onclick="add_Electronic()"> 
                             </div>
                         </div>
                         <div class="form-group">
@@ -309,7 +309,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <label for="Date" class="text-body small form-check-label">Shipping Date</label>
-                                    <input type="date" id="Shipping Date" name="Shipping Date" />
+                                    <input type="date" id="Shipping_Date" name="Shipping-Date" />
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-5">

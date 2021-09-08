@@ -342,6 +342,7 @@ input::-webkit-inner-spin-button {
     padding: 0;
     width: 38px;
     position: relative;
+    cursor: pointer;
 }
 
 .input-group .quantity-field {
