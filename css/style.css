@@ -229,7 +229,6 @@ form {
 
 .movingSofa {
     max-width: 100%;
-    /* width: 546px; */
     object-position: 50px;
     height: 700px;
     object-fit: cover;
@@ -342,7 +341,6 @@ input::-webkit-inner-spin-button {
     padding: 0;
     width: 38px;
     position: relative;
-    cursor: pointer;
 }
 
 .input-group .quantity-field {
@@ -371,12 +369,6 @@ input[type="number"] {
  the style of custom radio button 
  /* The container_of_radio */
 
-
-/* 
-.form-check-inline.col-3 {
-    background-color: #e7e7e7;
-} */
-
 .container_of_radio {
     display: block;
     position: relative;
@@ -385,7 +377,6 @@ input[type="number"] {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* background: #e7e7e7; */
     padding: 5px;
     padding-left: 20px;
     border-radius: 3px;
@@ -410,14 +401,6 @@ input[type="number"] {
     border: 1px solid #959595;
     border-radius: 50%;
 }
-
-
-/* On mouse-over, add a light pink background color */
-
-
-/* .container_of_radio:hover input~.checkmark {
-    background-color: #ed2f2c27;
-} */
 
 
 /* When the radio button is checked, add a white background */
