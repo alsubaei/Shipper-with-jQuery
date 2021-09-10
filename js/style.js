@@ -1,8 +1,11 @@
 //******************************************************************************* */
 // global variables 
 
-const signup_form = $("form#signup_form");
-const login_form = $("form#login_form");
+
+const signup_form = document.forms["signup_form"];
+const login_form = document.forms["login_form"];
+// const signup_form = $("form#signup_form");
+// const login_form = $("form#login_form");
 
 const signup = $(".signup_btn");
 const login = $(".login_btn");
@@ -27,13 +30,14 @@ const Header_Links = $(".nav-active");
 //******************************************************************************* */
 // first actions
 $(document).ready(function() {
+    console.log(login_form);
     $("#forgot_password").css("visibility", "hidden");
     $("#enter_password").css("visibility", "hidden");
-    signup_form.css("display", "none");
+    signup_form.style.display = "none";
     FurnitureShipping_form.hide();
     CarShipping_form.hide();
     GoodsShipping_form.hide();
-    login_form.css("display", "block");
+    login_form.style.display = "block";
 });
 
 
@@ -141,11 +145,11 @@ $("#submit_login").click(enter_password);
 //display Signup
 
 const display_signup = function() {
-    login_form.css("display", "none");
+    login_form.style.display = "none";
     FurnitureShipping_form.hide();
     CarShipping_form.hide();
     GoodsShipping_form.hide();
-    signup_form.css("display", "block");
+    signup_form.style.display = "block";
 };
 
 for (let i = 0; i < signup.length; i++)
@@ -156,11 +160,11 @@ for (let i = 0; i < signup.length; i++)
 //display Login
 
 const display_login = function() {
-    signup_form.css("display", "none");
+    signup_form.style.display = "none";
     FurnitureShipping_form.hide();
     CarShipping_form.hide();
     GoodsShipping_form.hide();
-    login_form.css("display", "block");
+    login_form.style.display = "block";
 };
 
 for (let i = 0; i < login.length; i++)
@@ -188,11 +192,13 @@ for (let i = 0; i < signup_form.length - 1; i++) {
 const display_FurnitureShipping = function(x) {
     let flag = 0;
     for (let i = 0; i < x.length - 1; i++) {
-        if (!$("#" + x.elements[i].id).value) flag++;
+        // if (!$("#" + x.elements[i].id).value) flag++;
+        if (!document.getElementById(x.elements[i].id).value) flag++;
     }
+    console.log(flag);
     if (flag == 0) {
-        login_form.css("display", "none");
-        signup_form.css("display", "none");
+        login_form.style.display = "none";
+        signup_form.style.display = "none";
         for (let i = 0; i < Furniture.length; i++) {
             Furniture[i].checked = "true";
         }
