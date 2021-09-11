@@ -30,7 +30,6 @@ const Header_Links = $(".nav-active");
 //******************************************************************************* */
 // first actions
 $(document).ready(function() {
-    console.log(login_form);
     $("#forgot_password").css("visibility", "hidden");
     $("#enter_password").css("visibility", "hidden");
     signup_form.style.display = "none";
@@ -38,6 +37,13 @@ $(document).ready(function() {
     CarShipping_form.hide();
     GoodsShipping_form.hide();
     login_form.style.display = "block";
+    $('.clockpicker').clockpicker();
+    $('#addon_datepicker').datepicker({
+        format: "dd/mm/yyyy",
+        todayBtn: "linked",
+        autoclose: true,
+        todayHighlight: true
+    });
 });
 
 
@@ -47,7 +53,6 @@ $(document).ready(function() {
 const bg_radio_button = function(x) {
     const buttons = document.querySelectorAll(x.val() + 'input[type="radio"]');
     const bg_button = $("." + x.val() + "form-check-inline");
-    console.log(bg_button);
     for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].checked) {
             bg_button[i].classList.remove("focus_color");
@@ -195,7 +200,6 @@ const display_FurnitureShipping = function(x) {
         // if (!$("#" + x.elements[i].id).value) flag++;
         if (!document.getElementById(x.elements[i].id).value) flag++;
     }
-    console.log(flag);
     if (flag == 0) {
         login_form.style.display = "none";
         signup_form.style.display = "none";

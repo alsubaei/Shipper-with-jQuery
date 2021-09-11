@@ -266,7 +266,7 @@ form {
     color: #ffffff !important;
 }
 
-.arrow {
+.arrow_down {
     object-fit: contain;
     width: 40px;
     max-height: 40px;
@@ -308,7 +308,7 @@ textarea {
     box-sizing: border-box;
     margin: 0;
     outline: none;
-    padding: 10px;
+    padding: 5px !important;
 }
 
 input[type="button"] {
@@ -512,26 +512,7 @@ input:checked+.slider:before {
 the style of custom time and date 
 */
 
-input[type="date"] {
-    width: 130px;
-    padding-right: 3px;
-}
-
- ::-webkit-datetime-edit-fields-wrapper {
-    display: none;
-}
-
-input[type="time"]:checked ::-webkit-datetime-edit-fields-wrapper {
-    display: block;
-}
-
-input[type="time"]::-webkit-calendar-picker-indicator {
-    background-image: url(../img/clock.svg);
-    filter: opacity(30%);
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url(../img/calendar.svg);
-    filter: opacity(30%);
-    margin: 0px;
+input#addon_datepicker,
+input#time-fix-value {
+    border-right-style: none;
 }
