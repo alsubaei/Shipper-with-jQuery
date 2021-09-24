@@ -3,8 +3,8 @@ $(document).ready(function() {
     //********************************************************************************/
     // global variables 
 
-    const signup_form = $("form#signup_form")[0];
-    const login_form = $("form#login_form")[0];
+    const signup_form = $("#signup_form");
+    const login_form = $("#login_form");
 
     const signup = $(".signup_btn");
     const login = $(".login_btn");
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     const Furniture = $(".Furniture");
     const Car = $(".Car");
-    // const Car = document.getElementsByClassName("Car");
+
     const Goods = $(".Goods");
 
     let g;
@@ -29,15 +29,15 @@ $(document).ready(function() {
 
 
     //******************************************************************************* */
-    // first actions  
+    // first actions
 
     $("#forgot_password").css("visibility", "hidden");
     $("#enter_password").css("visibility", "hidden");
-    signup_form.style.display = "none";
+    signup_form.hide();
     FurnitureShipping_form.hide();
     CarShipping_form.hide();
     GoodsShipping_form.hide();
-    login_form.style.display = "block";
+    login_form.show();
     $('.clockpicker').clockpicker();
     $('#addon_datepicker').datepicker({
         format: "dd/mm/yyyy",
@@ -51,17 +51,17 @@ $(document).ready(function() {
     // //focus and blur background color of radio button
 
     const bg_radio_button = function(x) {
-        const buttons = document.querySelectorAll(x.val() + 'input[type="radio"]');
-        const bg_button = $("." + x.val() + "form-check-inline");
+        const buttons = x.find("input:radio");
+        const bg_button = buttons.parents(".form-check-inline");
         for (let i = 0; i < buttons.length; i++) {
             if (buttons[i].checked) {
-                bg_button[i].classList.remove("focus_color");
-                bg_button[i].classList.remove("blur_color");
-                bg_button[i].classList.add("focus_color");
+                bg_button.eq(i).removeClass("focus_color");
+                bg_button.eq(i).removeClass("blur_color");
+                bg_button.eq(i).addClass("focus_color");
             } else {
-                bg_button[i].classList.remove("focus_color");
-                bg_button[i].classList.remove("blur_color");
-                bg_button[i].classList.add("blur_color");
+                bg_button.eq(i).removeClass("focus_color");
+                bg_button.eq(i).removeClass("blur_color");
+                bg_button.eq(i).addClass("blur_color");
             }
         }
     };
@@ -95,7 +95,7 @@ $(document).ready(function() {
     };
 
     for (let i = 0; i < Furniture.length; i++) {
-        Furniture[i].addEventListener("click", display_FurnitureShipping_form);
+        Furniture.click(display_FurnitureShipping_form);
     }
 
 
@@ -156,30 +156,30 @@ $(document).ready(function() {
     //display Signup
 
     const display_signup = function() {
-        login_form.style.display = "none";
+        login_form.hide();
         FurnitureShipping_form.hide();
         CarShipping_form.hide();
         GoodsShipping_form.hide();
-        signup_form.style.display = "block";
+        signup_form.show();
     };
 
     for (let i = 0; i < signup.length; i++)
-        signup[i].addEventListener("click", display_signup);
+        signup.click(display_signup);
 
 
     //******************************************************************************* */
     //display Login
 
     const display_login = function() {
-        signup_form.style.display = "none";
+        signup_form.hide();
         FurnitureShipping_form.hide();
         CarShipping_form.hide();
         GoodsShipping_form.hide();
-        login_form.style.display = "block";
+        login_form.show();
     };
 
     for (let i = 0; i < login.length; i++)
-        login[i].addEventListener("click", display_login);
+        login.click(display_login);
 
 
     //******************************************************************************* */
@@ -206,8 +206,8 @@ $(document).ready(function() {
             if (!$("#" + x.elements[i].id)[0].value) flag++;
         }
         if (flag == 0) {
-            login_form.style.display = "none";
-            signup_form.style.display = "none";
+            login_form.hide();
+            signup_form.hide();
             for (let i = 0; i < Furniture.length; i++) {
                 Furniture[i].checked = "true";
             }
@@ -251,7 +251,7 @@ $(document).ready(function() {
     };
 
     for (let i = 0; i < Car.length; i++) {
-        Car[i].addEventListener("click", display_CarShipping_form);
+        Car.click(display_CarShipping_form);
     }
 
     //******************************************************************************* */
@@ -268,10 +268,10 @@ $(document).ready(function() {
 
     for (let i = 0; i < Goods.length; i++) {
         if (i !== 1) {
-            Goods[i].addEventListener("click", display_GoodsShipping_form);
+            Goods.click(display_GoodsShipping_form);
         } else {
             g = 1;
-            Goods[i].addEventListener("click", display_FurnitureShipping_form);
+            Goods.click(display_FurnitureShipping_form);
         }
     }
 
