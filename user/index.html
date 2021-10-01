@@ -17,7 +17,6 @@
     <link href="../font-awesome-5.15.4/css/brands.css" rel="stylesheet">
     <link href="../font-awesome-5.15.4/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
 <body>
@@ -69,6 +68,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="home_end">
             <div class="d-flex flex-column">
                 <i class="fa fa-phone bg-success text-light fa-2x p-1 pr-2 pl-2 m-2 radius align-self-end"></i>
@@ -110,7 +110,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <div class="bg-red">
@@ -199,21 +198,21 @@
                         </h6>
                         <div class="form-group mt-4">
                             <div class="row">
-                                <div class="col-3 form-check-inline ">
+                                <div class="col-3 form-check-inline focus focus_color">
                                     <label class="container_of_radio text-body small">
                                         Furniture
-                                        <input type="radio" name="radio" class="form-check-input Furniture">
+                                        <input type="radio" name="radio" class="form-check-input Furniture" checked>
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="form-check-inline col-3 m-auto">
+                                <div class="form-check-inline col-3 m-auto blur_color">
                                     <label class="container_of_radio text-body small">
                                         Car
                                         <input type="radio" name="radio" class="form-check-input Car">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="form-check-inline col-3">
+                                <div class="form-check-inline col-3 blur_color">
                                     <label class="container_of_radio text-body small">
                                         Goods
                                         <input type="radio" name="radio" class=" form-check-input Goods">
@@ -287,20 +286,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" data-toggle="modal" data-target="#myModal">
                             <label for="from" class="text-body small form-check-label">From</label>
                             <div class="input-group m-0">
-                                <input type="" class="form-control" id="from" placeholder="Street on, Governorate" required>
+                                <input type="" name="geocode" class="form-control" value="15.3510508,44.1795148" placeholder="Street on, Governorate" id="input-geocode1" />
                                 <div class="input-group-append">
                                     <span class="input-group-text"><img style="filter: opacity(30%) ;"
                                             src="../img/my_location_black_24dp.svg"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="to" class="text-body small form-check-label">To</label>
+                        <div class="form-group" data-toggle="modal" data-target="#myModal">
+                            <label for="from" class="text-body small form-check-label">To</label>
                             <div class="input-group m-0">
-                                <input type="text" class="form-control" id="to" placeholder="Street on, Governorate">
+                                <input type="" name="geocode" class="form-control" value="15.3510508,44.1795148" placeholder="Street on, Governorate" id="input-geocode2" />
                                 <div class="input-group-append">
                                     <span class="input-group-text"><img style="filter: opacity(30%) ;"
                                             src="../img/my_location_black_24dp.svg"></span>
@@ -343,38 +342,36 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-5">
-                                        <label for="Furniture" class="text-body small form-check-label">Furniture
-                                            Shipping</label>
-                                        <div class="form-check-inline"><label class="container_of_radio text-body small">
-                                                <img src="../img/furniture shipping.png" height="50" width="100">
-                                                <input type="radio" name="radio1" class="form-check-input Furniture">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-5">
+                                    <label for="Furniture" class="text-body small form-check-label">Furniture
+                                        Shipping</label>
+                                    <div class="form-check-inline focus focus_color"><label class="container_of_radio text-body small">
+                                            <img src="../img/furniture shipping.png" height="50" width="100">
+                                            <input type="radio" name="radio1" class="form-check-input" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
                                     </div>
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <label for="Car" class="text-body small form-check-label">Goods Shipping</label>
-                                        <div class="form-check-inline"><label class="container_of_radio text-body small">
-                                                <img src="../img/goods shipping.png" height="50" width="100">
-                                                <input type="radio" name="radio1" class="form-check-input Goods">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
+                                </div>
+                                <div class="col-1"></div>
+                                <div class="col-5">
+                                    <label for="Car" class="text-body small form-check-label">Goods Shipping</label>
+                                    <div class="form-check-inline blur_color"><label class="container_of_radio text-body small">
+                                            <img src="../img/goods shipping.png" height="50" width="100">
+                                            <input type="radio" name="radio1" class="form-check-input">
+                                            <span class="checkmark"></span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <button type="submit" class="bg-red btn btn-block">Check Cost </button>
-                            </div>
+                        <div class="form-group">
+                            <button type="submit" class="bg-red btn btn-block">Check Cost </button>
                         </div>
                     </form>
-
 
                     <form id="CarShipping_form" class="border bg-light pr-5 pl-5 pt-3 pb-1" action="">
                         <h6 class="text-body text-center">
@@ -382,21 +379,21 @@
                         </h6>
                         <div class="form-group mt-4">
                             <div class="row">
-                                <div class="form-check-inline col-3">
+                                <div class="form-check-inline col-3 blur_color">
                                     <label class="container_of_radio text-body small">
                                         Furniture
                                         <input type="radio" name="radioCar" class="form-check-input Furniture">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="form-check-inline col-3 m-auto">
+                                <div class="form-check-inline col-3 m-auto focus focus_color">
                                     <label class="container_of_radio text-body small">
                                         Car
-                                        <input type="radio" name="radioCar" class="form-check-input Car">
+                                        <input type="radio" name="radioCar" class="form-check-input Car" checked>
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="form-check-inline col-3">
+                                <div class="form-check-inline col-3 blur_color">
                                     <label class="container_of_radio text-body small">
                                         Goods
                                         <input type="radio" name="radioCar" class=" form-check-input Goods">
@@ -409,20 +406,20 @@
                             <label for="type" class="text-body small">Car Type</label>
                             <input type="text" class="form-control" name="type" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" data-toggle="modal" data-target="#myModal">
                             <label for="from" class="text-body small form-check-label">From</label>
                             <div class="input-group m-0">
-                                <input type="" class="form-control" id="from" placeholder="Street on, Governorate" required>
+                                <input type="" name="geocode" class="form-control" value="15.3510508,44.1795148" placeholder="Street on, Governorate" id="input-geocode3" />
                                 <div class="input-group-append">
                                     <span class="input-group-text"><img style="filter: opacity(30%) ;"
                                             src="../img/my_location_black_24dp.svg"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="to" class="text-body small form-check-label">To</label>
+                        <div class="form-group" data-toggle="modal" data-target="#myModal">
+                            <label for="from" class="text-body small form-check-label">To</label>
                             <div class="input-group m-0">
-                                <input type="" class="form-control" id="to" placeholder="Street on, Governorate">
+                                <input type="" name="geocode" class="form-control" value="15.3510508,44.1795148" placeholder="Street on, Governorate" id="input-geocode4" />
                                 <div class="input-group-append">
                                     <span class="input-group-text"><img style="filter: opacity(30%) ;"
                                             src="../img/my_location_black_24dp.svg"></span>
@@ -433,13 +430,36 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-5">
-                                    <label for="Date" class="text-body small form-check-label">Shipping Date</label>
-                                    <input type="date" id="Shipping Date" name="Shipping Date" value="" />
+                                    <div class="form-group">
+                                        <label for="Date" class="text-body small form-check-label">Shipping Date</label>
+                                        <div class="input-group m-0 date" data-placement="left" data-align="top" data-twelvehour="true">
+                                            <input type="text" id="addon_datepicker" class="form-control">
+                                            <div class="input-group-append input-group-addon">
+                                                <span class="input-group-text p-0 pr-1"><img
+                                                        style="filter: opacity(30%) ;" src="../img/calendar.svg"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p> </p>
+                                    </div>
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-5">
-                                    <label for="time" class="text-body small form-check-label" value="">Time</label>
-                                    <input type="time" id="time" name="time">
+                                    <div class="form-group">
+                                        <label for="time" class="text-body small form-check-label">Time</label>
+                                        <div class="input-group m-0 clockpicker" data-default="now" data-autoclose="true" data-twelvehour="true">
+                                            <input type="text" name="fix_time" class="form-control" id="time-fix-value">
+                                            <div class="input-group-append input-group-addon">
+                                                <span class="input-group-text p-0 pr-1"><img
+                                                        style="filter: opacity(30%) ;" src="../img/clock.svg"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p> </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -448,9 +468,9 @@
                             <div class="row">
                                 <div class="col-5">
                                     <label for="Car" class="text-body small form-check-label">Car Shipping</label>
-                                    <div class="form-check-inline"><label class="container_of_radio text-body small">
+                                    <div class="form-check-inline focus focus_color"><label class="container_of_radio text-body small">
                                             <img src="../img/car shipping.png" height="50" width="100">
-                                            <input type="radio" name="radio1" class="form-check-input Car">
+                                            <input type="radio" name="radio1" class="form-check-input" checked>
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -468,24 +488,24 @@
                         </h6>
                         <div class="form-group mt-4">
                             <div class="row">
-                                <div class="form-check-inline col-3 pr-4">
+                                <div class="form-check-inline col-3 pr-4 blur_color">
                                     <label class="container_of_radio text-body small">
                                         Furniture
                                         <input type="radio" name="radioGoods" class="form-check-input Furniture">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="form-check-inline col-3 m-auto">
+                                <div class="form-check-inline col-3 m-auto blur_color">
                                     <label class="container_of_radio text-body small">
                                         Car
                                         <input type="radio" name="radioGoods" class="form-check-input Car">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="form-check-inline col-3">
+                                <div class="form-check-inline col-3 focus focus_color">
                                     <label class="container_of_radio text-body small">
                                         Goods
-                                        <input type="radio" name="radioGoods" class=" form-check-input Goods">
+                                        <input type="radio" name="radioGoods" class=" form-check-input Goods" checked>
                                         <span class=" checkmark "></span>
                                     </label>
                                 </div>
@@ -495,20 +515,20 @@
                             <label for="type" class="text-body small">Car Type</label>
                             <input type="text" class="form-control" name="type" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" data-toggle="modal" data-target="#myModal">
                             <label for="from" class="text-body small form-check-label">From</label>
                             <div class="input-group m-0">
-                                <input type="" class="form-control" id="from" placeholder="Street on, Governorate" required>
+                                <input type="" name="geocode" class="form-control" value="15.3510508,44.1795148" placeholder="Street on, Governorate" id="input-geocode5" />
                                 <div class="input-group-append">
                                     <span class="input-group-text"><img style="filter: opacity(30%) ;"
                                             src="../img/my_location_black_24dp.svg"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="to" class="text-body small form-check-label">To</label>
+                        <div class="form-group" data-toggle="modal" data-target="#myModal">
+                            <label for="from" class="text-body small form-check-label">To</label>
                             <div class="input-group m-0">
-                                <input type="" class="form-control" id="to" placeholder="Street on, Governorate" required>
+                                <input type="" name="geocode" class="form-control" value="15.3510508,44.1795148" placeholder="Street on, Governorate" id="input-geocode6" />
                                 <div class="input-group-append">
                                     <span class="input-group-text"><img style="filter: opacity(30%) ;"
                                             src="../img/my_location_black_24dp.svg"></span>
@@ -519,13 +539,36 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-5">
-                                    <label for="Date" class="text-body small form-check-label">Shipping Date</label>
-                                    <input type="date" id="Shipping Date" name="Shipping Date" value="" />
+                                    <div class="form-group">
+                                        <label for="Date" class="text-body small form-check-label">Shipping Date</label>
+                                        <div class="input-group m-0 date" data-placement="left" data-align="top" data-twelvehour="true">
+                                            <input type="text" id="addon_datepicker" class="form-control">
+                                            <div class="input-group-append input-group-addon">
+                                                <span class="input-group-text p-0 pr-1"><img
+                                                        style="filter: opacity(30%) ;" src="../img/calendar.svg"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p> </p>
+                                    </div>
                                 </div>
                                 <div class="col-1"></div>
                                 <div class="col-5">
-                                    <label for="time" class="text-body small form-check-label" value="">Time</label>
-                                    <input type="time" id="time" name="time">
+                                    <div class="form-group">
+                                        <label for="time" class="text-body small form-check-label">Time</label>
+                                        <div class="input-group m-0 clockpicker" data-default="now" data-autoclose="true" data-twelvehour="true">
+                                            <input type="text" name="fix_time" class="form-control" id="time-fix-value">
+                                            <div class="input-group-append input-group-addon">
+                                                <span class="input-group-text p-0 pr-1"><img
+                                                        style="filter: opacity(30%) ;" src="../img/clock.svg"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p> </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -534,9 +577,9 @@
                             <div class="row">
                                 <div class="col-5">
                                     <label for="Car" class="text-body small form-check-label">Goods Shipping</label>
-                                    <div class="form-check-inline"><label class="container_of_radio text-body small">
+                                    <div class="form-check-inline focus focus_color"><label class="container_of_radio text-body small">
                                             <img src="../img/goods shipping.png" height="50" width="100">
-                                            <input type="radio" name="radio1" class="form-check-input Goods">
+                                            <input type="radio" name="radio1" class="form-check-input" checked>
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -548,6 +591,19 @@
                         </div>
                     </form>
 
+                </div>
+
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div id="map">
+                                </div>
+                            </div>
+                            <button type="button" class="bg-red btn btn-block mt-n3" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -658,16 +714,17 @@
         </div>
     </div>
 
+    <script defer src="../font-awesome-5.15.4/js/brands.js"></script>
+    <script defer src="../font-awesome-5.15.4/js/solid.js"></script>
+    <script defer src="../font-awesome-5.15.4/js/fontawesome.js"></script>
+    <script defer src="../font-awesome-5.15.4/js/all.js"></script>
 
-    <script defer src="../jQuery 3.6.0/jquery-3.6.0.js" type="text/javascript"></script>
-    <script defer src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js" type="text/javascript"></script>
-    <script defer src="../clockpicker/dist/bootstrap-clockpicker.js" type="text/javascript"></script>
-    <script defer src="../bootstrap-datepicker-1.9.0/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script defer src="../font-awesome-5.15.4/js/brands.js" type="text/javascript"></script>
-    <script defer src="../font-awesome-5.15.4/js/solid.js" type="text/javascript"></script>
-    <script defer src="../font-awesome-5.15.4/js/fontawesome.js" type="text/javascript"></script>
-    <script defer src="../font-awesome-5.15.4/js/all.js" type="text/javascript"></script>
-    <script defer src="../js/stylecopy.js" type="text/javascript"></script>
+    <script src="../jQuery 3.6.0/jquery-3.6.0.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
+    <script src="../clockpicker/dist/bootstrap-clockpicker.js"></script>
+    <script src="../bootstrap-datepicker-1.9.0/js/bootstrap-datepicker.js"></script>
+    <script src="../js/stylecopy.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=places&v=weekly&channel=2" async></script>
 </body>
 
 </html>
