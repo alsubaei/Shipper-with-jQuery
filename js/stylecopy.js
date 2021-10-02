@@ -1,13 +1,9 @@
     if (document.readyState === "loading") {
         //________________________________________________________________________________
 
-        //functions of map
-        //هنا تعريف للمتغيرات 
         var map, infoWindow, pos, marker, GeoCodeStr, GeoCodeArr, input;
         var InitPos = { lat: 15.3510508, lng: 44.1795148 };
 
-        //هذا حدث لمربع نص
-        //يتنفذ اذا تغيرت قيمة النص
         $('#input-geocode1').on('input', function(e) {
             changePos(GeoCodeStr = $('#input-geocode1').val());
         });
@@ -27,13 +23,7 @@
             changePos(GeoCodeStr = $('#input-geocode6').val());
         });
 
-
-        //اول ماتتحمل الخريطة يستدعي هذ الفنكشن
-        //لاحظي اسمها في نفس ال
-        //html
         function initMap() {
-            //ناخذ قيمة الااحداثيات من داخل مربع الادخال 
-            //#input-geocode
             $('#input-geocode1').click(function() {
                 GeoCodeStr = $('#input-geocode1').val();
                 input = $('#input-geocode1');
@@ -58,29 +48,16 @@
                 GeoCodeStr = $('#input-geocode6').val();
                 input = $('#input-geocode6');
             });
-            //نتطمن على المدخلات لمربع النص
             if (checkLatLng(GeoCodeStr)) {
-                //نحول النص الى مصفوفة
                 GeoCodeArr = GeoCodeStr.split(",")
             } else {
-                //نحول الاوبجكت الى مصفوفة
                 GeoCodeArr = [InitPos.lat, InitPos.lng];
             }
-
-            //اوبجكت من 
-            //map
-            //البارمتر الاول هي الديف اللي بنطبق داخلها الخريطة
-            //البارامتر الثاني اعدادات الخريطة كا اوبجكت
             map = new google.maps.Map(
                 document.getElementById('map'), {
                     center: new google.maps.LatLng(GeoCodeArr[0], GeoCodeArr[1]),
                     zoom: 15
                 });
-            //اوبجكت من 
-            //marker
-            //العلامة الحمراء في الخريطة
-            //البارمتر اللي تاخذه 
-            //اعدادات العلامة فقط كا اوبجكت
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(GeoCodeArr[0], GeoCodeArr[1]),
                 map: map,
@@ -88,36 +65,28 @@
                 title: "Drag me!"
             });
 
-            //اوبجكت من 
-            //infoWindow
-            //النافذة للمعلومات تطلع على الخريطة
             infoWindow = new google.maps.InfoWindow;
 
-            //نثبت مستمع لحدث السحب على الخريطة
             google.maps.event.addListener(marker, 'drag', function(event) {
                 infoWindow.setContent('Location.<br/> (' + event.latLng.lat() + ',' + event.latLng.lng() + ')');
                 getReverseGeocodingData(event.latLng.lat(), event.latLng.lng());
             });
 
-            //نثبت مستمع لحدث الكليك على الخريطة 
             google.maps.event.addListener(map, 'click', function(event) {
                 marker.setPosition(event.latLng);
                 infoWindow.setContent('Location.<br/> (' + event.latLng.lat() + ',' + event.latLng.lng() + ')');
                 getReverseGeocodingData(event.latLng.lat(), event.latLng.lng());
             });
 
-            ////نثبت مستمع لحدث الكليك على العلامة
             google.maps.event.addListener(marker, 'click', function(event) {
                 infoWindow.setContent('Location.<br/> (' + event.latLng.lat() + ',' + event.latLng.lng() + ')');
                 infoWindow.open(map, marker);
             });
         }
 
-        //هنا بختبر القيم المدخلة في المربع النصي هل هي متوافقة مع طريقة جوجل ماب
         function checkLatLng(mapPos) {
             var regex = /^\s*([-+]?)([\d]{1,2})((\.)(\d+))\s*,\s*([-+]?)([\d]{1,3})((\.)(\d+))\s*$/;
 
-            // alert(MapPos);
             if (regex.exec(mapPos) !== null) {
                 return true;
             } else {
@@ -125,8 +94,6 @@
             }
         }
 
-        //هذه مهمة جدا هنا بغير الماركر الاحمر وافتح شاشة فوق العلامة
-        //infoWindow.setContent
         function changePos(MapPos) {
             if (checkLatLng(MapPos)) {
                 GeoCodeStr = MapPos;
@@ -143,13 +110,11 @@
 
         function getReverseGeocodingData(lat, lng) {
             var latlng = new google.maps.LatLng(lat, lng);
-            // This is making the Geocode request
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({ 'latLng': latlng }, function(results, status) {
                 if (status !== google.maps.GeocoderStatus.OK) {
                     alert(status);
                 }
-                // This is checking to see if the Geoeode Status is OK before proceeding
                 if (status == google.maps.GeocoderStatus.OK) {
                     input.val(results[0].formatted_address);
                 }
@@ -179,7 +144,7 @@
         $("#GoodsShipping_form").hide();
         $("#login_form").show();
         $('.clockpicker').clockpicker();
-        $('#addon_datepicker').datepicker({
+        $('.addon_datepicker').datepicker({
             format: "dd/mm/yyyy",
             todayBtn: "linked",
             autoclose: true,
@@ -333,6 +298,14 @@
 
         $('.input-group').on('click', '.button-minus', function(e) {
             decrementValue(e);
+        });
+
+        //________________________________________________________________________________
+
+        //function of clock
+
+        $('.clockpicker').click(function() {
+            $('.clockpicker-span-minutes').after(' ');
         });
 
     });

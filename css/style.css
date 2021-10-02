@@ -299,8 +299,8 @@ form {
 
 
 /* ________________________________________________________________________ 
- the style of custom plus and minus button 
- */
+the style of custom plus and minus button 
+*/
 
 input,
 textarea {
@@ -366,8 +366,8 @@ input[type="number"] {
 
 
 /* ________________________________________________________________________
- the style of custom radio button 
- /* The container_of_radio */
+the style of custom radio button 
+/* The container_of_radio */
 
 .container_of_radio {
     display: block;
@@ -442,7 +442,7 @@ input[type="number"] {
 
 
 /*________________________________________________________________________
- the style of custom switch button 
+the style of custom switch button 
 */
 
 .switch {
@@ -512,9 +512,63 @@ input:checked+.slider:before {
 the style of custom time and date 
 */
 
-input#addon_datepicker,
-input#time-fix-value {
+input.addon_datepicker,
+input.time-fix-value {
     border-right-style: none;
+}
+
+td.today.day {
+    background-color: #f9bcbb !important;
+    background-image: none !important;
+}
+
+td.active.day {
+    background-color: #ed302c !important;
+    background-image: none !important;
+}
+
+span.clockpicker-span-hours.text-primary,
+span.clockpicker-span-minutes.text-primary,
+span.clockpicker-span-am-pm {
+    color: #ed302c !important;
+}
+
+button.btn.btn-sm.btn-default.clockpicker-button.am-button,
+button.btn.btn-sm.btn-default.clockpicker-button.pm-button {
+    background-color: #ed302c !important;
+    color: white !important;
+}
+
+.datepicker table tr td.day:hover,
+.datepicker table tr td.day.focused,
+.clockpicker-tick.active,
+.clockpicker-tick:hover,
+.datepicker .datepicker-switch:hover,
+.datepicker .prev:hover,
+.datepicker .next:hover,
+.datepicker tfoot tr th:hover {
+    background-color: #f9bcbb !important;
+}
+
+.clockpicker-canvas-bearing,
+.clockpicker-canvas-fg {
+    fill: #ed302c !important
+}
+
+.clockpicker-canvas-bg {
+    fill: #f9bcbb !important
+}
+
+.clockpicker-canvas line {
+    stroke: #ed302c !important
+}
+
+.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top {
+    padding: 7px;
+}
+
+td.day {
+    padding: 3px 5px;
 }
 
 
